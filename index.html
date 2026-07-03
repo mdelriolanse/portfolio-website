@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alex Mercer — Software Engineer</title>
+  <meta name="description" content="Alex Mercer — software engineer. Systems, tooling, and the occasional pixel. Selected work and ways to get in touch." />
+  <meta name="color-scheme" content="dark" />
+
+  <!-- Social preview -->
+  <meta property="og:title" content="Alex Mercer — Software Engineer" />
+  <meta property="og:description" content="Systems, tooling, and the occasional pixel." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts: JetBrains Mono. Falls back to a system mono stack if offline. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#work">Skip to content</a>
+
+  <!-- ───────────────────────────── nav ───────────────────────────── -->
+  <header class="nav" role="banner">
+    <div class="wrap nav__inner">
+      <a class="nav__brand" href="#top" aria-label="Home">
+        <span class="prompt">~/alex</span><span class="prompt-sep">&nbsp;$</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#work">work</a>
+        <a href="#about">about</a>
+        <a href="#contact">contact</a>
+        <a class="nav__resume" href="#" data-noop>resume ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ──────────────────────────── hero ──────────────────────────── -->
+    <section class="hero wrap" aria-labelledby="hero-name">
+      <p class="eyebrow">// software engineer · new york</p>
+
+      <!-- ASCII wordmark (ANSI Shadow). Regenerate for your name — see README. -->
+      <pre class="ascii-banner" aria-hidden="true"> █████╗ ██╗     ███████╗██╗  ██╗
+██╔══██╗██║     ██╔════╝╚██╗██╔╝
+███████║██║     █████╗   ╚███╔╝
+██╔══██║██║     ██╔══╝   ██╔██╗
+██║  ██║███████╗███████╗██╔╝ ██╗
+╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝</pre>
+
+      <h1 id="hero-name" class="hero__name">Alex Mercer</h1>
+
+      <p class="hero__tagline">
+        <span class="type" data-type="I build fast, legible systems &amp; the tools around them."></span><span class="cursor" aria-hidden="true">█</span>
+      </p>
+
+      <p class="hero__blurb">
+        Backend &amp; developer-tooling engineer. I care about the boring parts —
+        latency, correctness, and interfaces that get out of your way.
+      </p>
+
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#work">View work</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </section>
+
+    <hr class="rule" aria-hidden="true" />
+
+    <!-- ──────────────────────────── work ──────────────────────────── -->
+    <section id="work" class="section wrap" aria-labelledby="work-h">
+      <div class="section__head">
+        <h2 id="work-h" class="section__title">// selected work</h2>
+        <span class="section__meta">04 projects</span>
+      </div>
+
+      <ol class="projects" role="list">
+        <li class="project">
+          <a class="project__row" href="#" data-noop>
+            <span class="project__idx">01</span>
+            <span class="project__body">
+              <span class="project__name">ledger-rs<span class="arrow"> →</span></span>
+              <span class="project__desc">An append-only event store with sub-millisecond reads. Powers billing for ~2M accounts.</span>
+              <span class="project__tags">
+                <span class="tag">Rust</span><span class="tag">RocksDB</span><span class="tag">gRPC</span>
+              </span>
+            </span>
+            <span class="project__year">2025</span>
+          </a>
+        </li>
+
+        <li class="project">
+          <a class="project__row" href="#" data-noop>
+            <span class="project__idx">02</span>
+            <span class="project__body">
+              <span class="project__name">glyph<span class="arrow"> →</span></span>
+              <span class="project__desc">A terminal-first snippet manager. Fuzzy search, zero config, 12&nbsp;KB binary.</span>
+              <span class="project__tags">
+                <span class="tag">Go</span><span class="tag">Bubbletea</span><span class="tag">SQLite</span>
+              </span>
+            </span>
+            <span class="project__year">2024</span>
+          </a>
+        </li>
+
+        <li class="project">
+          <a class="project__row" href="#" data-noop>
+            <span class="project__idx">03</span>
+            <span class="project__body">
+              <span class="project__name">driftwatch<span class="arrow"> →</span></span>
+              <span class="project__desc">Schema-drift detection for Postgres. Diffs migrations against prod &amp; opens a PR.</span>
+              <span class="project__tags">
+                <span class="tag">TypeScript</span><span class="tag">Postgres</span><span class="tag">GH Actions</span>
+              </span>
+            </span>
+            <span class="project__year">2024</span>
+          </a>
+        </li>
+
+        <li class="project">
+          <a class="project__row" href="#" data-noop>
+            <span class="project__idx">04</span>
+            <span class="project__body">
+              <span class="project__name">asciiscope<span class="arrow"> →</span></span>
+              <span class="project__desc">Renders live 3D models as ASCII in the browser. The thing that made this site.</span>
+              <span class="project__tags">
+                <span class="tag">WebGL</span><span class="tag">Three.js</span><span class="tag">Canvas</span>
+              </span>
+            </span>
+            <span class="project__year">2023</span>
+          </a>
+        </li>
+      </ol>
+    </section>
+
+    <hr class="rule" aria-hidden="true" />
+
+    <!-- ─────────────────────────── about ──────────────────────────── -->
+    <section id="about" class="section wrap" aria-labelledby="about-h">
+      <div class="section__head">
+        <h2 id="about-h" class="section__title">// about</h2>
+      </div>
+
+      <div class="about">
+        <div class="about__prose">
+          <p>
+            I&rsquo;m a software engineer with six years spent close to the metal —
+            databases, queues, and the command-line tools teams reach for every day.
+            Previously at <span class="hl">Stripe</span> and a couple of startups you
+            haven&rsquo;t heard of yet.
+          </p>
+          <p>
+            I like problems where the constraint is real: a latency budget, a memory
+            ceiling, a deadline. Off the clock I&rsquo;m usually in a terminal, or
+            outside pretending I&rsquo;m not thinking about one.
+          </p>
+        </div>
+
+        <aside class="about__stack" aria-label="Tools and stack">
+          <p class="about__stack-label">// stack</p>
+          <ul class="stack-list" role="list">
+            <li><span class="stack-key">lang</span><span class="stack-val">Rust · Go · TypeScript</span></li>
+            <li><span class="stack-key">data</span><span class="stack-val">Postgres · Redis · RocksDB</span></li>
+            <li><span class="stack-key">infra</span><span class="stack-val">Kubernetes · Terraform</span></li>
+            <li><span class="stack-key">daily</span><span class="stack-val">Neovim · tmux · ripgrep</span></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <hr class="rule" aria-hidden="true" />
+
+    <!-- ────────────────────────── contact ─────────────────────────── -->
+    <section id="contact" class="section wrap" aria-labelledby="contact-h">
+      <div class="section__head">
+        <h2 id="contact-h" class="section__title">// get in touch</h2>
+      </div>
+
+      <p class="contact__lead">
+        Open to interesting problems &amp; good teams. The fastest way to reach me:
+      </p>
+
+      <ul class="contact__links" role="list">
+        <li><a href="mailto:you@example.com"><span class="contact__key">email</span><span class="contact__val">you@example.com</span></a></li>
+        <li><a href="#" data-noop><span class="contact__key">github</span><span class="contact__val">github.com/alexmercer</span></a></li>
+        <li><a href="#" data-noop><span class="contact__key">linkedin</span><span class="contact__val">in/alexmercer</span></a></li>
+        <li><a href="#" data-noop><span class="contact__key">x</span><span class="contact__val">@alexmercer</span></a></li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- ─────────────────────────── footer ──────────────────────────── -->
+  <footer class="footer wrap" role="contentinfo">
+    <pre class="footer__rule" aria-hidden="true">└─────────────────────────────────────────────┘</pre>
+    <div class="footer__inner">
+      <span>© <span id="year">2026</span> Alex Mercer</span>
+      <span class="footer__note">built in a terminal, mostly</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
