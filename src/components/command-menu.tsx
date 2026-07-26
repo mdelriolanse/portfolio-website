@@ -49,10 +49,8 @@ import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
 import { ChanhDaiMark, getMarkSVG } from "./chanhdai-mark"
 import { getWordmarkSVG } from "./chanhdai-wordmark"
 import {
-  FavouriteIcon,
   GridViewIcon,
   NewsIcon,
-  ReactIcon,
   SearchIcon,
 } from "./icons"
 import { Button } from "./ui/button"
@@ -86,32 +84,11 @@ const MENU_LINKS: CommandLinkItem[] = [
     shortcut: "GH",
   },
   {
-    title: "Components",
-    href: "/components",
-    kind: "page",
-    icon: <ReactIcon />,
-    shortcut: "GC",
-  },
-  {
-    title: "Blocks",
-    href: "/blocks",
-    kind: "page",
-    icon: <GridViewIcon />,
-    shortcut: "GB",
-  },
-  {
     title: "Blog",
     href: "/blog",
     kind: "page",
     icon: <NewsIcon />,
     shortcut: "GL",
-  },
-  {
-    title: "Sponsors",
-    href: "/sponsors",
-    kind: "page",
-    icon: <FavouriteIcon />,
-    shortcut: "GS",
   },
   {
     title: "Testimonials",
@@ -216,7 +193,7 @@ export function CommandMenu({
   enabledHotkeys = false,
 }: {
   docs: DocPreview[]
-  blocks: BlockItem[]
+  blocks?: BlockItem[]
   enabledHotkeys?: boolean
 }) {
   const router = useRouter()

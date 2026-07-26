@@ -6,14 +6,12 @@ import remarkGfm from "remark-gfm"
 import remarkMdx from "remark-mdx"
 
 import { generator } from "@/lib/auto-type-table"
-import { remarkComponent } from "@/lib/remark-component"
 import type { Doc } from "@/features/doc/types/document"
 
 const processor = remark()
   .use(remarkMdx)
   .use(remarkGfm)
   .use(remarkHeading)
-  .use(remarkComponent)
   .use(remarkAutoTypeTable, { name: "AutoTypeTable", generator })
 
 export async function getLLMText(doc: Doc) {

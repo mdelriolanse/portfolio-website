@@ -13,7 +13,6 @@ import {
   rehypeHighlightCode,
   rehypeHighlightCodeRawString,
 } from "@/lib/rehype-code-block"
-import { rehypeComponent } from "@/lib/rehype-component"
 import { rehypeNpmCommand } from "@/lib/rehype-npm-command"
 import { remarkCodeImport } from "@/lib/remark-code-import"
 import { cn } from "@/lib/utils"
@@ -34,7 +33,6 @@ import {
 } from "@/components/base/ui/tabs"
 import { Code } from "@/components/base/ui/typography"
 import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper"
-import { ComponentSource } from "@/components/component-source"
 import { AutoTypeTable } from "@/features/doc/components/auto-type-table"
 import { DocSponsors } from "@/features/doc/components/doc-sponsors"
 import { DocTestimonial } from "@/features/doc/components/doc-testimonial"
@@ -42,7 +40,6 @@ import { DocTestimonial2 } from "@/features/doc/components/doc-testimonial-2"
 
 import { Callout } from "./callout"
 import { CodeTabs } from "./code-tabs"
-import { ComponentPreview } from "./component-preview"
 import { FramedImage, IframeEmbed, YouTubeEmbed } from "./embed"
 import { Heading } from "./heading"
 import { mdxCodeBlockComponents } from "./mdx-code-block"
@@ -62,8 +59,6 @@ const components: MDXRemoteProps["components"] = {
   td: TableCell,
   ...mdxCodeBlockComponents,
   code: Code,
-  ComponentPreview,
-  ComponentSource,
   CodeCollapsibleWrapper,
   CodeTabs,
   Callout,
@@ -107,7 +102,6 @@ const options: MDXRemoteProps["options"] = {
     rehypePlugins: [
       [rehypeExternalLinks, { target: "_blank", rel: "nofollow noopener" }],
       rehypeSlug,
-      rehypeComponent,
       rehypeCodeRawString,
       rehypeHighlightCode,
       rehypeHighlightCodeRawString,
