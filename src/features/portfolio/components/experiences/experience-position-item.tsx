@@ -1,5 +1,5 @@
 import { differenceInMonths, parse } from "date-fns"
-import { BriefcaseBusinessIcon, InfinityIcon } from "lucide-react"
+import { BriefcaseBusinessIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Tag } from "@/components/ui/tag"
@@ -80,15 +80,7 @@ export function ExperiencePositionItem({
             <dd className="flex items-center gap-0.5 tabular-nums">
               <span>{start}</span>
               <span className="font-mono">—</span>
-              {isOngoing ? (
-                <InfinityIcon
-                  className="size-4.5 translate-y-[0.5px]"
-                  aria-label="Present"
-                  strokeWidth={1.5}
-                />
-              ) : (
-                <span>{end}</span>
-              )}
+              <span>{isOngoing ? "Present" : end}</span>
             </dd>
           </div>
 

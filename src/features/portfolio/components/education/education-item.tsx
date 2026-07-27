@@ -1,4 +1,4 @@
-import { GraduationCapIcon, InfinityIcon } from "lucide-react"
+import { GraduationCapIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Tag } from "@/components/ui/tag"
@@ -61,15 +61,7 @@ export function EducationItem({ item }: { item: Education }) {
               <dd className="flex items-center gap-0.5 tabular-nums">
                 <span>{start}</span>
                 <span className="font-mono">—</span>
-                {isOngoing ? (
-                  <InfinityIcon
-                    className="size-4.5 translate-y-[0.5px]"
-                    aria-label="Present"
-                    strokeWidth={1.5}
-                  />
-                ) : (
-                  <span>{end}</span>
-                )}
+                <span>{isOngoing ? "Present" : end}</span>
               </dd>
             </div>
 

@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { addQueryParams } from "@/utils/url"
-import { BoxIcon, InfinityIcon, LinkIcon } from "lucide-react"
+import { BoxIcon, LinkIcon } from "lucide-react"
 
 import { UTM_PARAMS } from "@/config/site"
 import { Tag } from "@/components/ui/tag"
@@ -67,14 +67,7 @@ export function ProjectItem({
                   {!isSinglePeriod && (
                     <>
                       <span className="font-mono">—</span>
-                      {isOngoing ? (
-                        <InfinityIcon
-                          className="size-4.5 translate-y-[0.5px]"
-                          aria-label="Present"
-                        />
-                      ) : (
-                        <span>{end}</span>
-                      )}
+                      <span>{isOngoing ? "Present" : end}</span>
                     </>
                   )}
                 </dd>
