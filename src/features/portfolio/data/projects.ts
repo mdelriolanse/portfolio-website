@@ -1,9 +1,17 @@
+import {
+  CpuIcon,
+  MessagesSquareIcon,
+  ShieldCheckIcon,
+  ShieldOffIcon,
+} from "lucide-react"
+
 import type { Project } from "../types/projects"
 
 export const PROJECTS: Project[] = [
   {
     id: "dispatch",
     title: "Dispatch",
+    icon: ShieldCheckIcon,
     period: {
       start: "02.2026",
     },
@@ -28,6 +36,7 @@ export const PROJECTS: Project[] = [
   {
     id: "open-weight-open-risk",
     title: "Open Weight, Open Risk",
+    icon: ShieldOffIcon,
     period: {
       start: "10.2025",
     },
@@ -51,6 +60,7 @@ export const PROJECTS: Project[] = [
   {
     id: "debately",
     title: "Debately",
+    icon: MessagesSquareIcon,
     period: {
       start: "05.2025",
     },
@@ -71,6 +81,7 @@ export const PROJECTS: Project[] = [
   {
     id: "tensor-atelier",
     title: "TensorAtelier",
+    icon: CpuIcon,
     period: {
       start: "01.2025",
     },

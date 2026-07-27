@@ -31,6 +31,7 @@ export function ProjectItem({
   const { start, end } = project.period
   const isOngoing = !end
   const isSinglePeriod = end === start
+  const Icon = project.icon ?? BoxIcon
 
   return (
     <Collapsible className={className} defaultOpen={project.isExpanded}>
@@ -48,7 +49,7 @@ export function ProjectItem({
           />
         ) : (
           <div className="mx-4 flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-muted-foreground ring-1 ring-line ring-offset-1 ring-offset-background select-none">
-            <BoxIcon className="size-4" />
+            <Icon className="size-4" />
           </div>
         )}
 

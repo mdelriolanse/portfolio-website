@@ -1,5 +1,5 @@
 ---
-name: ncdai-writing-component-docs
+name: writing-component-docs
 description: Write and review component documentation (MDX) and registry descriptions. Covers doc structure, description writing, Features, Composition, Credits, and References sections. Use when creating new component docs, updating descriptions, adding Features sections, adding Composition sections, adding Credits sections, adding References sections, or reviewing component documentation quality.
 ---
 
@@ -22,7 +22,7 @@ Component docs follow this section order. Only include sections that are relevan
 ---
 title: Component Name
 description: One concise sentence about what the component does.
-image: https://assets.chanhdai.com/images/blog/{component-name}.webp
+image: https://assets.mdelriolanse.com/images/blog/{component-name}.webp
 createdAt: YYYY-MM-DD
 updatedAt: YYYY-MM-DD
 ---
@@ -328,7 +328,7 @@ Each component in `src/registry/components/_registry.ts` must have a `descriptio
   type: "registry:component",
   description: "Same one-sentence description as MDX frontmatter.",
   title: "Component Name",
-  author: "ncdai <dai@chanhdai.com>",
+  author: "mdelriolanse <md2292@cornell.edu>",
   // ...
 }
 ```

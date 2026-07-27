@@ -75,7 +75,7 @@ Unused dependency confirmed:
 | Update one dep    | `pnpm up @c15t/nextjs@latest` | updates within range / to latest  |
 | Build             | `pnpm build`                  | exit 0                            |
 | Registry validate | `pnpm registry:validate`      | exit 0                            |
-| Dev server        | `pnpm dev`                    | serves at https://ncdai.localhost |
+| Dev server        | `pnpm dev`                    | serves at https://mdrl.localhost |
 
 ## Scope
 

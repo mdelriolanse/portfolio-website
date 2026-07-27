@@ -105,7 +105,7 @@ Added by the 2026-07-07 audit:
   establishes the characterization pattern (noted in 011's maintenance
   notes).
 - The maintained doc-writing skill lives at
-  `.agents/skills/ncdai-writing-component-docs/` and is not auto-discovered
+  `.agents/skills/writing-component-docs/` and is not auto-discovered
   by Claude Code (`.claude/` has no skills dir). One-line fix if wanted:
   symlink or reference from `AGENTS.md`. (It does appear available in the
   current session's skill list, so this may already be wired user-side.)

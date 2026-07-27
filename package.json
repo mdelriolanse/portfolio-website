@@ -1,24 +1,24 @@
 {
-  "name": "chanhdai.com",
+  "name": "portfolio-website",
   "version": "0.1.0",
   "description": "A pixel-perfect dev portfolio and shadcn registry.",
-  "homepage": "https://chanhdai.com",
+  "homepage": "https://mdelriolanse.com",
   "license": "MIT",
   "author": {
-    "name": "Nguyen Chanh Dai",
-    "email": "dai@chanhdai.com",
-    "url": "https://github.com/ncdai"
+    "name": "Mateo del Rio Lanse",
+    "email": "md2292@cornell.edu",
+    "url": "https://github.com/mdelriolanse"
   },
   "contributors": [
     {
-      "name": "Nguyen Chanh Dai",
-      "email": "dai@chanhdai.com",
-      "url": "https://github.com/ncdai"
+      "name": "Mateo del Rio Lanse",
+      "email": "md2292@cornell.edu",
+      "url": "https://github.com/mdelriolanse"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ncdai/chanhdai.com.git"
+    "url": "git+https://github.com/mdelriolanse/portfolio-website.git"
   },
   "scripts": {
     "dev": "next dev",

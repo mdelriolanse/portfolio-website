@@ -152,9 +152,9 @@ no tests yet). If it errors on config, fix before continuing.
 Create `src/utils/url.test.ts`:
 
 - `urlToName`: strips `https://`, `http://`, and protocol-relative `//`; leaves a
-  bare host unchanged. Cases: `"https://chanhdai.com"` → `"chanhdai.com"`,
+  bare host unchanged. Cases: `"https://mdelriolanse.com"` → `"mdelriolanse.com"`,
   `"http://x.com/y"` → `"x.com/y"`, `"//cdn.x.com"` → `"cdn.x.com"`,
-  `"chanhdai.com"` → `"chanhdai.com"`.
+  `"mdelriolanse.com"` → `"mdelriolanse.com"`.
 - `addQueryParams`: adds/overwrites params on a valid URL; returns the input
   unchanged when given an invalid URL string. Cases:
   `addQueryParams("https://x.com", { a: "1" })` → contains `a=1`;

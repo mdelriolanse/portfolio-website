@@ -120,7 +120,7 @@ the generator — it changes how `ComponentPreview` consumes the existing `Index
 | Build      | `pnpm build`       | exit 0; prints route bundle sizes |
 | Typecheck  | `pnpm check-types` | exit 0                            |
 | Lint       | `pnpm lint`        | exit 0                            |
-| Dev server | `pnpm dev`         | serves at https://ncdai.localhost |
+| Dev server | `pnpm dev`         | serves at https://mdrl.localhost |
 
 ## Step 0 (MEASURE FIRST — gate the whole plan)
 

@@ -41,11 +41,14 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# ncdai
-.ncdai
+# local capture output
+.mdrl
 
 # local dev log
 .dev.log
 
 # claude code local state (incl. linked worktrees)
 .claude/
+
+# serena mcp local cache
+.serena/

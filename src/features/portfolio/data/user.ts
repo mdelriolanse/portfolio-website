@@ -26,13 +26,13 @@ export const USER: User = {
     {
       title: "Software Engineering Intern",
       company: "Options Technology",
-      website: "https://www.options-it.com",
+      website: "https://www.options-it.com/",
       experienceId: "options-technology",
     },
     {
       title: "Engineering Manager & ML Engineer",
       company: "Generative AI at Cornell",
-      website: "https://www.gencornell.com",
+      website: "https://www.cornellgenai.dev/",
       experienceId: "cornell",
     },
   ],

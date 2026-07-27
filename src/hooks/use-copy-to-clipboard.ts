@@ -1,8 +1,6 @@
 "use client"
 
 import { useCallback, useRef, useState } from "react"
-import { useTiks } from "@rexa-developer/tiks/react"
-import { useWebHaptics } from "web-haptics/react"
 
 export type CopyState = "idle" | "done" | "error"
 
@@ -20,9 +18,6 @@ export function useCopyToClipboard({
   const [state, setState] = useState<CopyState>("idle")
   const resetTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  const { trigger: haptic } = useWebHaptics()
-  const { success: tiksSuccess, error: tiksError } = useTiks()
-
   const copy = useCallback(
     async (text: string | (() => string)) => {
       // Clear any pending reset
@@ -36,15 +31,9 @@ export function useCopyToClipboard({
 
         setState("done")
 
-        haptic("success")
-        tiksSuccess()
-
         onCopySuccess?.(finalText)
       } catch (error) {
         setState("error")
-
-        haptic("error")
-        tiksError()
 
         onCopyError?.(error instanceof Error ? error : new Error("Copy failed"))
       } finally {
@@ -54,7 +43,7 @@ export function useCopyToClipboard({
         }, resetDelay)
       }
     },
-    [onCopySuccess, onCopyError, haptic, tiksSuccess, tiksError, resetDelay]
+    [onCopySuccess, onCopyError, resetDelay]
   )
 
   return { state, copy } as const

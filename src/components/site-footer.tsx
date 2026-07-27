@@ -1,7 +1,6 @@
-import { LICENSE, SOURCE_CODE_GITHUB_URL } from "@/config/site"
+import { LICENSE, SITE_GITHUB_URL } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { DmcaIcon, GitHubIcon, LinkedInIcon } from "@/components/icons"
-import { SiteFooterInteractiveLogotype } from "@/components/site-footer-brand"
 import { SOCIAL } from "@/features/portfolio/data/social-links"
 
 export function SiteFooter() {
@@ -74,7 +73,7 @@ export function SiteFooter() {
             <dd>
               <a
                 className="link-underline"
-                href={SOURCE_CODE_GITHUB_URL}
+                href={SITE_GITHUB_URL}
                 target="_blank"
                 rel="noopener"
               >
@@ -144,8 +143,6 @@ export function SiteFooter() {
           <div className="right-[-4.5px] bottom-[-3.5px]" />
         </div> */}
       </div>
-
-      <SiteFooterInteractiveLogotype />
 
       <div className="h-(--fade-bottom-height)" />
       <div className="pb-[env(safe-area-inset-bottom,0)]" />

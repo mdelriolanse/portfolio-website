@@ -11,9 +11,7 @@ export const EDUCATION: Education[] = [
       end: "12.2028",
     },
     description: `- Bachelor of Science in Electrical & Computer Engineering, GPA 3.75 / 4.00.
-- Expected graduation: December 2028.
-- Undergraduate Research Assistant, Cornell NLP Group — LLM safety alignment.
-- Engineering Manager, Generative AI at Cornell.`,
+- Expected graduation: December 2028.`,
     skills: [
       "C",
       "C++",

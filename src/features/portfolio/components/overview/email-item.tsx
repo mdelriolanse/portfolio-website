@@ -3,7 +3,6 @@
 import { useId } from "react"
 import { copyToClipboardWithEvent } from "@/utils/copy"
 import { decodeEmail } from "@/utils/string"
-import { useTiks } from "@rexa-developer/tiks/react"
 import { MailIcon } from "lucide-react"
 import { useHotkeys } from "react-hotkeys-hook"
 import { toast } from "sonner"
@@ -29,8 +28,6 @@ export function EmailItem({ emailB64 }: EmailItemProps) {
   const isClient = useIsClient()
   const emailDecoded = decodeEmail(emailB64)
 
-  const { success } = useTiks()
-
   useHotkeys("shift+e", () => {
     copyToClipboardWithEvent(emailDecoded, {
       name: "copy_email",
@@ -39,7 +36,6 @@ export function EmailItem({ emailB64 }: EmailItemProps) {
         key: "shift+e",
       },
     })
-    success()
     toast.success("Email copied")
   })
 

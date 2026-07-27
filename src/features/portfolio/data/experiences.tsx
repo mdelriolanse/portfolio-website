@@ -11,7 +11,7 @@ export const EXPERIENCES: Experience[] = [
   {
     id: "options-technology",
     companyName: "Options Technology",
-    companyWebsite: "https://www.options-it.com",
+    companyWebsite: "https://www.options-it.com/",
     location: "New York, New York",
     locationType: "On-site",
     positions: [

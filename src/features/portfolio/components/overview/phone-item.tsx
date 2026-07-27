@@ -3,7 +3,6 @@
 import { useId } from "react"
 import { copyToClipboardWithEvent } from "@/utils/copy"
 import { decodePhoneNumber, formatPhoneNumber } from "@/utils/string"
-import { useTiks } from "@rexa-developer/tiks/react"
 import { PhoneIcon } from "lucide-react"
 import { useHotkeys } from "react-hotkeys-hook"
 import { toast } from "sonner"
@@ -30,8 +29,6 @@ export function PhoneItem({ phoneNumberB64 }: PhoneItemProps) {
   const phoneNumberDecoded = decodePhoneNumber(phoneNumberB64)
   const phoneNumberFormatted = formatPhoneNumber(phoneNumberDecoded)
 
-  const { success } = useTiks()
-
   useHotkeys("shift+p", () => {
     copyToClipboardWithEvent(phoneNumberDecoded, {
       name: "copy_phone_number",
@@ -40,7 +37,6 @@ export function PhoneItem({ phoneNumberB64 }: PhoneItemProps) {
         key: "shift+p",
       },
     })
-    success()
     toast.success("Phone number copied")
   })
 

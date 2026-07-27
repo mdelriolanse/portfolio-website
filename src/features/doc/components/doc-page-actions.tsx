@@ -3,7 +3,6 @@
 "use client"
 
 import { useMemo, useRef, useState } from "react"
-import { useTiks } from "@rexa-developer/tiks/react"
 import { IconCheck, IconCopy, IconX } from "@tabler/icons-react"
 import { ChevronDownIcon } from "lucide-react"
 
@@ -39,8 +38,6 @@ export function LLMCopyButton({ markdownUrl }: { markdownUrl: string }) {
   const [isCopying, setIsCopying] = useState(false)
   const operationRef = useRef(false)
 
-  const { success, error } = useTiks()
-
   const handleCopy = async () => {
     if (operationRef.current) return
 
@@ -66,10 +63,8 @@ export function LLMCopyButton({ markdownUrl }: { markdownUrl: string }) {
           }),
         ])
       }
-      success()
       setState("done")
     } catch {
-      error()
       setState("error")
     } finally {
       clearTimeout(loadingTimer)

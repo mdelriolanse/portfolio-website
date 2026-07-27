@@ -1,3 +1,5 @@
+import type { LucideIcon } from "lucide-react"
+
 export type Project = {
   /** Stable unique identifier (used as list key/anchor). */
   id: string
@@ -20,6 +22,8 @@ export type Project = {
   description?: string
   /** Logo image URL (absolute or path under /public). */
   logo?: string
+  /** Icon shown when no `logo` is set; defaults to a generic box. */
+  icon?: LucideIcon
   /** Whether the project card is expanded by default in the UI. */
   isExpanded?: boolean
 }

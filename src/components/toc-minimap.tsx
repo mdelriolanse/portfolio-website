@@ -3,9 +3,7 @@
 import type { TOCItemType } from "fumadocs-core/toc"
 
 import { trackEvent } from "@/lib/events"
-import { uMiniMapOpenSound } from "@/lib/soundcn/u-mini-map-open"
 import { cn } from "@/lib/utils"
-import { useSound } from "@/hooks/soundcn/use-sound"
 import {
   HoverCard,
   HoverCardContent,
@@ -23,8 +21,6 @@ export function TOCMinimap({
   options?: IntersectionObserverInit
   className?: string
 }) {
-  const [play] = useSound(uMiniMapOpenSound, { volume: 0.3 })
-
   if (!items.length) {
     return null
   }
@@ -35,7 +31,6 @@ export function TOCMinimap({
         <HoverCard
           onOpenChange={(open) => {
             if (open) {
-              play()
               trackEvent({ name: "toc_minimap_hover" })
             }
           }}
