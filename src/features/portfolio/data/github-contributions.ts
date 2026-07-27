@@ -20,6 +20,8 @@ export const getGitHubContributions = unstable_cache(
     const data = (await res.json()) as GitHubContributionsResponse
     return data.contributions ?? []
   },
-  ["github-contributions"],
+  // The username is part of the key: without it a cached response outlives a
+  // change to GITHUB_USERNAME and keeps serving the previous account's graph.
+  ["github-contributions", GITHUB_USERNAME],
   { revalidate: 86400 } // Cache for 1 day (86400 seconds)
 )
