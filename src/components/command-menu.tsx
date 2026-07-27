@@ -8,7 +8,6 @@ import {
   BookmarkIcon,
   BoxIcon,
   BriefcaseBusinessIcon,
-  CircleCheckBigIcon,
   CornerDownLeftIcon,
   CrownIcon,
   DownloadIcon,
@@ -28,7 +27,6 @@ import { useHotkeys } from "react-hotkeys-hook"
 import { toast } from "sonner"
 
 import { trackEvent } from "@/lib/events"
-import { useClickSound } from "@/hooks/soundcn/use-click-sound"
 import { useMutationObserver } from "@/hooks/use-mutation-observer"
 import {
   CommandDialog,
@@ -124,12 +122,6 @@ const PORTFOLIO_LINKS: CommandLinkItem[] = [
     icon: <CrownIcon />,
   },
   {
-    title: "Certifications",
-    href: "/#certs",
-    kind: "page",
-    icon: <CircleCheckBigIcon />,
-  },
-  {
     title: "Bookmarks",
     href: "/#bookmarks",
     kind: "page",
@@ -191,8 +183,6 @@ export function CommandMenu({
 
   const [selectedCommandKind, setSelectedCommandKind] =
     useState<CommandKind | null>(null)
-
-  const [click] = useClickSound()
 
   const { success: tiksSuccess } = useTiks()
 
@@ -257,7 +247,6 @@ export function CommandMenu({
 
   const createThemeHandler = useCallback(
     (theme: "light" | "dark" | "system") => () => {
-      click()
       setOpen(false)
 
       trackEvent({
@@ -270,7 +259,7 @@ export function CommandMenu({
 
       setTheme(theme)
     },
-    [click, setTheme]
+    [setTheme]
   )
 
   const components = useMemo(

@@ -4,6 +4,7 @@ import { USER } from "@/features/portfolio/data/user"
 import { AvatarLightsToggle } from "./avatar-lights-toggle"
 import { FlipSentences } from "./flip-sentences"
 import { PronounceMyName } from "./pronounce-my-name"
+import { SocialLinks } from "./social-links"
 import { VerifiedIcon } from "./verified-icon"
 
 export function ProfileHeader() {
@@ -14,9 +15,6 @@ export function ProfileHeader() {
           className="h-full min-h-[70px] w-full bg-[radial-gradient(var(--pattern-foreground)_1px,transparent_0)] bg-size-[10px_10px] bg-center [--pattern-foreground:color-mix(in_oklab,var(--color-zinc-400)_60%,transparent)] sm:min-h-[110px] dark:[--pattern-foreground:color-mix(in_oklab,var(--color-zinc-600)_60%,transparent)]"
           aria-hidden
         />
-        <figcaption className="pointer-events-none absolute right-2 bottom-2 font-mono text-xs leading-none text-zinc-400 select-none sm:right-4 dark:text-zinc-700">
-          FIG_001
-        </figcaption>
       </figure>
 
       <div className="flex flex-col sm:row-span-2 sm:row-start-1">
@@ -32,7 +30,7 @@ export function ProfileHeader() {
 
       <div className="flex flex-col">
         <div className="z-1 mt-auto border-t border-line">
-          <div className="flex items-center gap-2 pl-4">
+          <div className="flex items-center gap-2 px-4">
             <h1 className="-translate-y-px text-[2rem]/none font-medium tracking-tight">
               {USER.displayName}
             </h1>
@@ -44,6 +42,8 @@ export function ProfileHeader() {
                 namePronunciationUrl={USER.namePronunciationUrl}
               />
             )}
+
+            <SocialLinks className="ml-auto" />
           </div>
 
           <FlipSentences className="h-12.5 border-t border-line py-1 pl-4 sm:h-9">

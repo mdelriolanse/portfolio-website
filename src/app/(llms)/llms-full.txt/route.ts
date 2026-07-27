@@ -4,7 +4,6 @@ import { SITE_INFO } from "@/config/site"
 import { getBlogPosts } from "@/features/doc/data/documents"
 import { getLLMText } from "@/features/doc/lib/get-llm-text"
 import { AWARDS } from "@/features/portfolio/data/awards"
-import { CERTIFICATIONS } from "@/features/portfolio/data/certifications"
 import { EXPERIENCES } from "@/features/portfolio/data/experiences"
 import { PROJECTS } from "@/features/portfolio/data/projects"
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
@@ -59,10 +58,6 @@ const awardsText = `## Awards
 ${AWARDS.map((item) => `### ${item.prize} | ${item.title}\n\n${item.description}`).join("\n\n")}
 `
 
-const certificationsText = `## Certifications
-
-${CERTIFICATIONS.map((item) => `- [${item.title}](${item.credentialURL})`).join("\n")}`
-
 async function getBlogContent() {
   const text = await Promise.all(
     allPosts.map(
@@ -74,7 +69,7 @@ async function getBlogContent() {
 }
 
 async function getContent() {
-  return `<SYSTEM>This document contains comprehensive information about ${USER.displayName}'s professional profile, portfolio, and blog content. It includes personal details, work experience, projects, achievements, certifications, and all published blog posts. This data is formatted for consumption by Large Language Models (LLMs) to provide accurate and up-to-date information about ${USER.displayName}'s background, skills, and expertise as ${USER.jobTitle}.</SYSTEM>
+  return `<SYSTEM>This document contains comprehensive information about ${USER.displayName}'s professional profile, portfolio, and blog content. It includes personal details, work experience, projects, achievements, and all published blog posts. This data is formatted for consumption by Large Language Models (LLMs) to provide accurate and up-to-date information about ${USER.displayName}'s background, skills, and expertise as ${USER.jobTitle}.</SYSTEM>
 
 # ${SITE_INFO.name}
 
@@ -84,7 +79,6 @@ ${aboutText}
 ${experienceText}
 ${projectsText}
 ${awardsText}
-${certificationsText}
 
 ## Blog
 

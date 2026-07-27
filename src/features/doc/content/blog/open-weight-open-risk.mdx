@@ -1,0 +1,77 @@
+---
+title: Open weight, open risk — reasoning traces leak what the answer refuses
+description: We made DeepSeek-V4, GLM 5.1, and Kimi K2 comply with WMDP-derived bioweapon and chemical requests at above 95% rates using a small unaligned model to seed their reasoning traces. No training, no frontier compute.
+image: /images/blog/open-weight-open-risk/hero.jpg
+createdAt: 2026-05-27
+updatedAt: 2026-05-27
+---
+
+We made DeepSeek-V4, GLM 5.1, and Kimi K2 comply with requests to engineer bioweapons with nearly no refusals.
+
+The method is embarrassingly simple. No training, no frontier compute.
+
+These models will be a great threat to humanity if open-weight labs still don't take safety seriously.
+
+<SafetyIndexChart />
+
+## Shallow alignment
+
+Some labs train models to refuse directly in the final response. But by the time that refusal arrives, the reasoning trace has already leaked the malicious domain knowledge.
+
+This is a type of shallow alignment — the safety behavior sits on the surface of the output distribution rather than in the model's knowledge or its intermediate computation.
+
+More on shallow alignment: https://huggingface.co/papers/2406.05946
+
+## Setup
+
+To test this systematically, we built 800 malicious request samples derived from the WMDP benchmark, spanning biology and chemistry categories.
+
+WMDP benchmark paper: https://huggingface.co/papers/2403.03218
+
+## Inception
+
+We use a small unaligned model — OpenThinker3-7B, distilled by the open community — to write the beginning of the reasoning trace. The target model continues it with technical details drawn from its own domain expertise.
+
+We call the method Inception, after the Nolan movie.
+
+## Compliance results
+
+| Condition                                            | Median reasoning-model compliance |
+| ---------------------------------------------------- | --------------------------------- |
+| Direct prompting                                     | 7.5%                              |
+| Simple inject ("Okay, I need to help the user with") | 15%                               |
+| Inception                                            | above 95%                         |
+
+<ComplianceChart />
+
+The obvious objection is that OpenThinker3 wrote everything. It didn't. Across each trace, the architect model contributes less than a fourth of the tokens — the rest is the target model's own reasoning.
+
+## What the traces actually contain
+
+For the biology cases:
+
+- 81% pair aerosol delivery with respiratory routes
+- 69% involve communicable pathogens
+- 91% reach diffuse or global scope
+
+That is the canonical pandemic-pathogen recipe. The models reason about cities and populations, not individuals.
+
+<BioTraceBreakdown />
+
+On chemistry, 82% pair urban-outdoor or confined-indoor exposure with explosive dispersal or spray/vapor delivery — the combination that maximizes affected population per kilogram of agent.
+
+<ChemTraceBreakdown />
+
+## Alignment that fires too late
+
+Sometimes alignment does fire. Qwen3-Next-80B-Instruct leaks the knowledge and then tries to refuse at the end, in 62% of its successful attacks.
+
+The safety pressure exists but is inadequate. It shows up after the model has already said the dangerous part.
+
+<LateRefusalChart />
+
+## Full write-up
+
+Methodology, the BRI/CRI risk index, and interactive traces of the attack on each model:
+
+https://aochong-li.github.io/open-weight-open-risk/

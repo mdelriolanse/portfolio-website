@@ -43,6 +43,7 @@ export function IframeEmbed({
 
 export function FramedImage({
   canZoom = true,
+  className,
   ...props
 }: React.ComponentProps<"img"> & {
   canZoom?: boolean
@@ -51,7 +52,8 @@ export function FramedImage({
   const image = <img {...props} />
 
   return (
-    <figure className="relative [&_img]:rounded-xl">
+    // className sizes the frame, so the inset ring keeps hugging the image
+    <figure className={cn("relative [&_img]:rounded-xl", className)}>
       {canZoom ? <ImageZoom>{image}</ImageZoom> : image}
 
       <div className="pointer-events-none absolute inset-0 rounded-xl inset-ring-1 inset-ring-black/10 dark:inset-ring-white/10" />

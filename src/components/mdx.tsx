@@ -33,6 +33,13 @@ import {
 } from "@/components/base/ui/tabs"
 import { Code } from "@/components/base/ui/typography"
 import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper"
+import {
+  BioTraceBreakdown,
+  ChemTraceBreakdown,
+  ComplianceChart,
+  LateRefusalChart,
+  SafetyIndexChart,
+} from "@/features/blog/components/open-weight-open-risk-charts"
 import { AutoTypeTable } from "@/features/doc/components/auto-type-table"
 
 import { Callout } from "./callout"
@@ -88,6 +95,13 @@ const components: MDXRemoteProps["components"] = {
   IframeEmbed,
   FramedImage,
   AutoTypeTable: (props) => <AutoTypeTable {...props} generator={generator} />,
+
+  // Charts for the "Open weight, open risk" post
+  SafetyIndexChart,
+  ComplianceChart,
+  BioTraceBreakdown,
+  ChemTraceBreakdown,
+  LateRefusalChart,
 }
 
 const options: MDXRemoteProps["options"] = {

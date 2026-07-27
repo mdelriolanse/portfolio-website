@@ -22,7 +22,6 @@ export function TOC() {
           { title: "Experience", url: "#experience", depth: 2 },
           { title: "Projects", url: "#projects", depth: 2 },
           { title: "Awards", url: "#awards", depth: 2 },
-          { title: "Certifications", url: "#certs", depth: 2 },
           { title: "Bookmarks", url: "#bookmarks", depth: 2 },
           { title: "Insights", url: "#insights", depth: 2 },
         ]}
