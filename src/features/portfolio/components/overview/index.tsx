@@ -56,7 +56,9 @@ export function Overview() {
 
         <CurrentLocalTimeItem timeZone={USER.timeZone} />
 
-        <PhoneItem phoneNumberB64={USER.phoneNumberB64} />
+        {USER.phoneNumberB64 && (
+          <PhoneItem phoneNumberB64={USER.phoneNumberB64} />
+        )}
 
         <EmailItem emailB64={USER.emailB64} />
 

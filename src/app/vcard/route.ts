@@ -3,6 +3,7 @@ import { decodeEmail, decodePhoneNumber } from "@/utils/string"
 import sharp from "sharp"
 import VCard from "vcard-creator"
 
+import { absoluteUrl } from "@/lib/utils"
 import { USER } from "@/features/portfolio/data/user"
 
 export const revalidate = false
@@ -12,14 +13,19 @@ export const dynamicParams = false
 export async function GET() {
   const card = new VCard()
 
+  card.addName(USER.lastName, USER.firstName)
+
+  if (USER.phoneNumberB64) {
+    card.addPhoneNumber(decodePhoneNumber(USER.phoneNumberB64))
+  }
+
   card
-    .addName(USER.lastName, USER.firstName)
-    .addPhoneNumber(decodePhoneNumber(USER.phoneNumberB64))
     .addAddress(USER.address)
     .addEmail(decodeEmail(USER.emailB64))
     .addURL(USER.website)
 
-  const photo = await getVCardPhoto(USER.avatar)
+  // USER.avatar may be a /public path, which fetch() cannot resolve on its own.
+  const photo = await getVCardPhoto(absoluteUrl(USER.avatar))
   if (photo) {
     card.addPhoto(photo.image, photo.mime)
   }

@@ -7,5 +7,8 @@ export const cn = (...inputs: ClassValue[]) => {
 }
 
 export function absoluteUrl(path: string) {
-  return `${process.env.NEXT_PUBLIC_APP_URL}${path}`
+  // Falling back keeps this from producing "undefined/..." when the env var is
+  // unset, which is the common case in local dev.
+  const base = process.env.NEXT_PUBLIC_APP_URL || "https://mdelriolanse.com"
+  return `${base}${path}`
 }
