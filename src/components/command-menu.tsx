@@ -139,7 +139,7 @@ const SOCIAL_LINK_ITEMS: CommandLinkItem[] = SOCIAL_LINKS.map((item) => ({
   href: item.href,
   kind: "link",
   icon: SOCIAL_ICONS[item.name],
-  openInNewTab: true,
+  openInNewTab: item.href.startsWith("http"),
 }))
 
 const OTHER_LINK_ITEMS: CommandLinkItem[] = [

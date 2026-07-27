@@ -30,7 +30,9 @@ export function SocialLinks({ className }: { className?: string }) {
                   render={
                     <a
                       href={addQueryParams(item.href, UTM_PARAMS)}
-                      target="_blank"
+                      target={
+                        item.href.startsWith("http") ? "_blank" : undefined
+                      }
                       rel="noopener"
                     >
                       {SOCIAL_ICONS[item.name]}
@@ -41,7 +43,7 @@ export function SocialLinks({ className }: { className?: string }) {
               }
             />
             <TooltipContent>
-              {item.title} ({item.handle})
+              {item.handle ? `${item.title} (${item.handle})` : item.title}
             </TooltipContent>
           </Tooltip>
         </li>

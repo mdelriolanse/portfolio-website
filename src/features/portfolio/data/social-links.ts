@@ -18,6 +18,10 @@ export const SOCIAL = {
     href: "https://www.linkedin.com/in/mdelriolanse/",
     sameAs: true,
   },
+  resume: {
+    title: "Résumé",
+    href: "/resume",
+  },
 } satisfies Record<string, SocialProfile>
 
 export type SocialName = keyof typeof SOCIAL
