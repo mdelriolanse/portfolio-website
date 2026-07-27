@@ -1,1 +1,15 @@
-pnpm lint-staged
+# Git hooks run with a minimal environment, so the shell's default node/pnpm
+# wins -- which here is Node 20 and a standalone pnpm 9 in ~/.local/bin. This
+# tree needs the .nvmrc Node and the pnpm pinned in package.json, so load nvm
+# and go through corepack rather than whatever `pnpm` happens to resolve to.
+export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+  . "$NVM_DIR/nvm.sh"
+  nvm use --silent 2>/dev/null || true
+fi
+
+if command -v corepack >/dev/null 2>&1; then
+  corepack pnpm lint-staged
+else
+  pnpm lint-staged
+fi
