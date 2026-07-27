@@ -5,17 +5,11 @@ import { jsonLdBreadcrumbList, JsonLdScript } from "@/lib/json-ld"
 import { Button } from "@/components/ui/button"
 import { Tag } from "@/components/ui/tag"
 import { Markdown } from "@/components/markdown"
-import {
-  PageHeading,
-  PageHeadingTagline,
-  PageHeadingTitle,
-} from "@/components/page-heading"
-import { RevealEncodedTextScript } from "@/features/portfolio/components/overview/reveal-encoded-text"
+import { PageHeading, PageHeadingTitle } from "@/components/page-heading"
 import { AWARDS } from "@/features/portfolio/data/awards"
 import { EDUCATION } from "@/features/portfolio/data/education"
 import { EXPERIENCES } from "@/features/portfolio/data/experiences"
 import { PROJECTS } from "@/features/portfolio/data/projects"
-import { SOCIAL } from "@/features/portfolio/data/social-links"
 import { TECH_STACK } from "@/features/portfolio/data/tech-stack"
 import { USER } from "@/features/portfolio/data/user"
 
@@ -46,8 +40,6 @@ export const metadata: Metadata = {
   },
 }
 
-const EMAIL_ID = "resume-email"
-
 export default function Page() {
   return (
     <>
@@ -60,34 +52,16 @@ export default function Page() {
 
       <div className="min-h-svh">
         <PageHeading>
-          <PageHeadingTagline>Résumé</PageHeadingTagline>
-          <PageHeadingTitle>{USER.displayName}</PageHeadingTitle>
+          <PageHeadingTitle className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+            Résumé
+            <Button asChild variant="outline" size="sm">
+              <a href="/resume.pdf" download="Resume.pdf">
+                <DownloadIcon />
+                Download PDF
+              </a>
+            </Button>
+          </PageHeadingTitle>
         </PageHeading>
-
-        <div className="screen-line-bottom flex flex-wrap gap-x-2 gap-y-1 p-4 text-sm text-muted-foreground">
-          <span>{USER.address}</span>
-          <span aria-hidden>·</span>
-          {/* Decoded before paint so the address is not plaintext in the HTML. */}
-          <span id={EMAIL_ID} />
-          <RevealEncodedTextScript id={EMAIL_ID} textB64={USER.emailB64} />
-          <span aria-hidden>·</span>
-          <a href={SOCIAL.github.href} target="_blank" rel="noopener">
-            GitHub
-          </a>
-          <span aria-hidden>·</span>
-          <a href={SOCIAL.linkedin.href} target="_blank" rel="noopener">
-            LinkedIn
-          </a>
-        </div>
-
-        <div className="screen-line-bottom p-4">
-          <Button asChild variant="outline" size="sm">
-            <a href="/resume.pdf" download="Resume.pdf">
-              <DownloadIcon />
-              Download PDF
-            </a>
-          </Button>
-        </div>
 
         <Section title="Education">
           {EDUCATION.map((item) => (
