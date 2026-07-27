@@ -27,10 +27,6 @@ export const MAIN_NAV: NavItem<Route>[] = [
     title: "Blog",
     href: "/blog",
   },
-  {
-    title: "Timeline",
-    href: "/timeline",
-  },
 ]
 
 export const MOBILE_NAV: NavItem<Route>[] = [

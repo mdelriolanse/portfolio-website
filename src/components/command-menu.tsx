@@ -18,7 +18,6 @@ import {
   LineChartIcon,
   MonitorIcon,
   MoonStarIcon,
-  QuoteIcon,
   RssIcon,
   SunMediumIcon,
   TextInitialIcon,
@@ -45,13 +44,9 @@ import type { DocPreview } from "@/features/doc/types/document"
 import { SOCIAL_ICONS } from "@/features/portfolio/components/social-link-icons"
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
 
-import { SiteMark, getMarkSVG } from "./site-mark"
+import { GridViewIcon, NewsIcon, SearchIcon } from "./icons"
+import { getMarkSVG, SiteMark } from "./site-mark"
 import { getWordmarkSVG } from "./site-wordmark"
-import {
-  GridViewIcon,
-  NewsIcon,
-  SearchIcon,
-} from "./icons"
 import { Button } from "./ui/button"
 import { Kbd, KbdGroup } from "./ui/kbd"
 
@@ -88,13 +83,6 @@ const MENU_LINKS: CommandLinkItem[] = [
     kind: "page",
     icon: <NewsIcon />,
     shortcut: "GL",
-  },
-  {
-    title: "Testimonials",
-    href: "/testimonials",
-    kind: "page",
-    icon: <QuoteIcon strokeWidth={1.5} />,
-    shortcut: "GT",
   },
 ]
 
@@ -451,7 +439,6 @@ export function CommandMenu({
                 <TypeIcon />
                 Copy Logotype as SVG
               </CommandMenuItem>
-
             </CommandGroup>
 
             <CommandGroup heading="Theme">
