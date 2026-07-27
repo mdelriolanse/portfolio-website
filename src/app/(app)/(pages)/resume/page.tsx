@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
+import { DownloadIcon } from "lucide-react"
 
 import { jsonLdBreadcrumbList, JsonLdScript } from "@/lib/json-ld"
+import { Button } from "@/components/ui/button"
 import { Tag } from "@/components/ui/tag"
 import { Markdown } from "@/components/markdown"
 import {
@@ -76,6 +78,15 @@ export default function Page() {
           <a href={SOCIAL.linkedin.href} target="_blank" rel="noopener">
             LinkedIn
           </a>
+        </div>
+
+        <div className="screen-line-bottom p-4">
+          <Button asChild variant="outline" size="sm">
+            <a href="/resume.pdf" download="Resume.pdf">
+              <DownloadIcon />
+              Download PDF
+            </a>
+          </Button>
         </div>
 
         <Section title="Education">
