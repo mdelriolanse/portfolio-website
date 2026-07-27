@@ -1,64 +1,65 @@
 import type { User } from "@/features/portfolio/types/user"
 
 export const USER: User = {
-  firstName: "Chánh Đại",
-  lastName: "Nguyễn",
-  displayName: "Chánh Đại",
-  username: "ncdai",
+  firstName: "Mateo",
+  lastName: "del Rio Lanse",
+  displayName: "Mateo del Rio Lanse",
+  username: "mdelriolanse",
+  // TODO: set these to what you actually use — they feed the vCard and JSON-LD.
   gender: "male",
   pronouns: "he/him",
-  bio: "Creating with code. Small details matter.",
+  bio: "Building AI infrastructure, and probing where it breaks.",
   flipSentences: [
-    "Creating with code. Small details matter.",
-    "Design Engineer.",
-    "Open source contributor.",
-    "I own a vintage iPhone.",
+    "Building AI infrastructure, and probing where it breaks.",
+    "ECE @ Cornell.",
+    "LLM safety researcher.",
+    "Software engineer.",
   ],
-  address: "Ho Chi Minh City, Viet Nam",
-  phoneNumberB64: "Kzg0Nzc3ODg4MTQ4", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
-  emailB64: "ZGFpQGNoYW5oZGFpLmNvbQ==", // base64 encoded
-  website: "https://chanhdai.com",
-  jobTitle: "Design Engineer",
+  address: "Ithaca, New York",
+  // Left blank on purpose: a number on a résumé is not the same as a number on
+  // a public page. To publish it, base64-encode E.164 (+19147582446).
+  phoneNumberB64: "",
+  emailB64: "bWQyMjkyQGNvcm5lbGwuZWR1", // md2292@cornell.edu
+  website: "https://mdelriolanse.com",
+  jobTitle: "Software Engineering Intern",
   jobs: [
     {
-      title: "Design Engineer",
-      company: "shadcncraft",
-      website: "https://shadcncraft.com?atp=ncdai",
-      experienceId: "shadcncraft",
+      title: "Software Engineering Intern",
+      company: "Options Technology",
+      website: "https://www.options-it.com",
+      experienceId: "options-technology",
     },
     {
-      title: "Founder",
-      company: "Quaric",
-      website: "https://quaric.com",
-      experienceId: "quaric",
+      title: "Engineering Manager & ML Engineer",
+      company: "Generative AI at Cornell",
+      website: "https://www.gencornell.com",
+      experienceId: "cornell",
     },
   ],
-  about: `- I’m Chánh Đại (call me Dai) — a Design Engineer with 5+ years of experience, known for pixel-perfect execution and an obsessive attention to detail.
-- Passionate about exploring new technologies and turning ideas into reality through polished, thoughtfully crafted projects.
-- Creator of [chanhdai.com](https://github.com/ncdai/chanhdai.com) (2k stars), [React Wheel Picker](https://react-wheel-picker.chanhdai.com) (30k+ weekly downloads, ▲Vercel OSS Program), and [ZaDark](https://zadark.com) (80k+ downloads, 30k+ users) — peak metrics.
+  about: `- I’m Mateo — an Electrical & Computer Engineering student at Cornell, working on the infrastructure that serves large models and the research that stress-tests them.
+- At [Options Technology](https://www.options-it.com) I build PrivateMind, private AI infrastructure serving open-weight models on B300/B200 GPUs across colocated data centers in New York and London.
+- At the [Cornell NLP Group](https://nlp.cornell.edu) I work on LLM safety alignment, evaluating frontier models under adversarial prompting.
+- Author of [Open Weight, Open Risk](https://aochong-li.github.io/open-weight-open-risk/), a training-free jailbreak that steers a target model’s chain-of-thought, and [Dispatch](https://dispatch-eosin.vercel.app/), an agentic pentesting platform that won Best Developer Tool at the 2026 Cornell AI Hackathon.
 `,
-  avatar: "https://assets.chanhdai.com/images/chanhdai-avatar-ghibli.webp",
+  // TODO: replace with your own images (see /public). The upstream avatar-lights
+  // effect wants a matched set: light/dark × on/off.
+  avatar: "/avatar.webp",
   avatarVariants: {
-    lightOff: "https://assets.chanhdai.com/images/avatar-light-off.webp",
-    lightOn: "https://assets.chanhdai.com/images/avatar-light-on.webp",
-    darkOff: "https://assets.chanhdai.com/images/avatar-dark-off.webp",
-    darkOn: "https://assets.chanhdai.com/images/avatar-dark-on.webp",
+    lightOff: "/avatar-light-off.webp",
+    lightOn: "/avatar-light-on.webp",
+    darkOff: "/avatar-dark-off.webp",
+    darkOn: "/avatar-dark-on.webp",
   },
-  ogImage:
-    "https://assets.chanhdai.com/images/screenshot-og-image-dark.png?t=1778602757",
-  namePronunciationUrl: "https://assets.chanhdai.com/audio/chanhdai.mp3",
-  timeZone: "Asia/Ho_Chi_Minh",
+  ogImage: "/og-image.png",
+  namePronunciationUrl: "",
+  timeZone: "America/New_York",
   keywords: [
-    "ncdai",
-    "nguyenchanhdai",
-    "nguyen chanh dai",
-    "chanhdai",
-    "chanh dai",
-    "iamncdai",
-    "quaric",
-    "zadark",
-    "nguyễn chánh đại",
-    "chánh đại",
+    "mdelriolanse",
+    "mateo del rio lanse",
+    "mateo del rio",
+    "cornell ece",
+    "llm safety",
+    "ai infrastructure",
   ],
-  dateCreated: "2023-10-20", // YYYY-MM-DD
+  dateCreated: "2026-07-26", // YYYY-MM-DD
 }

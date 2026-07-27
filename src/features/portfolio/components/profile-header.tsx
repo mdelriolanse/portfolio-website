@@ -2,7 +2,6 @@ import { AvatarLights } from "@/features/portfolio/components/avatar-lights"
 import { USER } from "@/features/portfolio/data/user"
 
 import { AvatarLightsToggle } from "./avatar-lights-toggle"
-import { ChanhDaiMarkIsometric } from "./chanhdai-mark-isometric"
 import { FlipSentences } from "./flip-sentences"
 import { PronounceMyName } from "./pronounce-my-name"
 import { VerifiedIcon } from "./verified-icon"
@@ -10,8 +9,11 @@ import { VerifiedIcon } from "./verified-icon"
 export function ProfileHeader() {
   return (
     <div className="screen-line-bottom grid grid-cols-[auto_1fr] grid-rows-[1fr_auto] overflow-y-clip border-x border-line">
-      <figure className="relative col-span-2 p-2 sm:col-span-1 sm:col-start-2 sm:p-4">
-        <ChanhDaiMarkIsometric />
+      <figure className="relative col-span-2 overflow-hidden p-2 sm:col-span-1 sm:col-start-2 sm:p-4">
+        <div
+          className="h-full min-h-[70px] w-full bg-[radial-gradient(var(--pattern-foreground)_1px,transparent_0)] bg-size-[10px_10px] bg-center [--pattern-foreground:color-mix(in_oklab,var(--color-zinc-400)_60%,transparent)] sm:min-h-[110px] dark:[--pattern-foreground:color-mix(in_oklab,var(--color-zinc-600)_60%,transparent)]"
+          aria-hidden
+        />
         <figcaption className="pointer-events-none absolute right-2 bottom-2 font-mono text-xs leading-none text-zinc-400 select-none sm:right-4 dark:text-zinc-700">
           FIG_001
         </figcaption>

@@ -6,7 +6,7 @@ import { USER } from "@/features/portfolio/data/user"
 
 export const SITE_INFO = {
   name: USER.displayName,
-  url: process.env.NEXT_PUBLIC_APP_URL || "https://chanhdai.com",
+  url: process.env.NEXT_PUBLIC_APP_URL || "https://mdelriolanse.com",
   ogImage: USER.ogImage,
   description: USER.bio,
   keywords: USER.keywords,
@@ -41,13 +41,16 @@ export const MOBILE_NAV: NavItem<Route>[] = [
   ...MAIN_NAV,
 ]
 
-export const X_HANDLE = SOCIAL.x.handle
 export const GITHUB_USERNAME = SOCIAL.github.handle
+
+/** Upstream this site is built on; credited in the footer. */
 export const SOURCE_CODE_GITHUB_REPO = "ncdai/chanhdai.com"
 export const SOURCE_CODE_GITHUB_URL = "https://github.com/ncdai/chanhdai.com"
 
-export const SPONSORSHIP_URL = "https://github.com/sponsors/ncdai"
+/** This site's own repo — backs the "Open in GitHub" action on blog posts.
+ *  TODO: point at the real repo once it's pushed. */
+export const SITE_GITHUB_URL = `https://github.com/${GITHUB_USERNAME}/portfolio-website`
 
 export const UTM_PARAMS = {
-  utm_source: "chanhdai.com",
+  utm_source: "mdelriolanse.com",
 }

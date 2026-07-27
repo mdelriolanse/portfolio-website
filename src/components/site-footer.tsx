@@ -1,11 +1,10 @@
 import { LICENSE, SOURCE_CODE_GITHUB_URL } from "@/config/site"
 import { cn } from "@/lib/utils"
-import { DmcaIcon, GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons"
+import { DmcaIcon, GitHubIcon, LinkedInIcon } from "@/components/icons"
 import { SiteFooterInteractiveLogotype } from "@/components/site-footer-brand"
 import { SOCIAL } from "@/features/portfolio/data/social-links"
 
 export function SiteFooter() {
-  const xLink = SOCIAL.x
   const githubLink = SOCIAL.github
   const linkedinLink = SOCIAL.linkedin
 
@@ -22,11 +21,11 @@ export function SiteFooter() {
             <dd>
               <a
                 className="link-underline"
-                href={xLink.href}
+                href={githubLink.href}
                 target="_blank"
                 rel="noopener"
               >
-                {xLink.handle}
+                {githubLink.handle}
               </a>
             </dd>
           </Item>
@@ -58,7 +57,7 @@ export function SiteFooter() {
                 <li>
                   <a
                     className="link-underline"
-                    href="https://openpanel.dev?utm_source=chanhdai.com&utm_medium=referral&utm_campaign=footer"
+                    href="https://openpanel.dev"
                     target="_blank"
                     rel="noopener"
                   >
@@ -101,18 +100,6 @@ export function SiteFooter() {
 
         <div className="screen-line-top screen-line-bottom flex w-full before:z-1 after:z-1">
           <div className="mx-auto flex items-center justify-center gap-3 border-x border-line bg-background px-4">
-            <a
-              className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
-              href={xLink.href}
-              target="_blank"
-              rel="noopener"
-              aria-label="X Profile"
-            >
-              <XIcon className="size-4" />
-            </a>
-
-            <Separator />
-
             <a
               className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
               href={githubLink.href}

@@ -3,7 +3,7 @@ import Link from "next/link"
 
 import { MAIN_NAV } from "@/config/site"
 import { Separator } from "@/components/base/ui/separator"
-import { ChanhDaiMark } from "@/components/chanhdai-mark"
+import { SiteMark } from "@/components/site-mark"
 import { NavDesktop } from "@/components/nav-desktop"
 import { NavItemGitHub } from "@/components/nav-item-github"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -31,7 +31,7 @@ export function SiteHeader() {
       <div className="screen-line-top screen-line-bottom mx-auto flex h-(--header-height) items-center gap-2 border-r border-line pr-2 group-has-data-[slot=layout-wide]/layout:container after:z-1 after:bg-border sm:gap-4 md:max-w-3xl">
         <BrandContextMenu>
           <Link href="/" aria-label="Home">
-            <ChanhDaiMark className="h-8 shrink-0" />
+            <SiteMark className="h-8 shrink-0" />
           </Link>
         </BrandContextMenu>
 

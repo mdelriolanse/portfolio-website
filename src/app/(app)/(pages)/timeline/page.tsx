@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 
-import { X_HANDLE } from "@/config/site"
 import { jsonLdBreadcrumbList, JsonLdScript } from "@/lib/json-ld"
 import {
   PageHeading,
@@ -33,8 +32,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: X_HANDLE,
-    creator: X_HANDLE,
     images: [ogImage],
   },
 }
