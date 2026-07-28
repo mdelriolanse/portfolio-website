@@ -30,8 +30,8 @@ export function ProfileHeader() {
 
       <div className="flex flex-col">
         <div className="z-1 mt-auto border-t border-line">
-          <div className="flex items-center gap-2 px-4">
-            <h1 className="-translate-y-px text-[2rem]/none font-medium tracking-tight">
+          <div className="flex items-center gap-2 px-4 max-sm:flex-wrap max-sm:gap-y-1.5 max-sm:py-1">
+            <h1 className="-translate-y-px text-2xl/none font-medium tracking-tight max-sm:min-w-0 max-sm:flex-1 sm:text-[2rem]/none">
               {USER.displayName}
             </h1>
 
@@ -43,10 +43,10 @@ export function ProfileHeader() {
               />
             )}
 
-            <SocialLinks className="ml-auto" />
+            <SocialLinks className="ml-auto max-sm:ml-0 max-sm:basis-full" />
           </div>
 
-          <FlipSentences className="h-12.5 border-t border-line py-1 pl-4 sm:h-9">
+          <FlipSentences className="min-h-12.5 border-t border-line py-1 pl-4 sm:min-h-9">
             {USER.flipSentences}
           </FlipSentences>
         </div>

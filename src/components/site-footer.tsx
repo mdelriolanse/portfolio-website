@@ -14,7 +14,7 @@ export function SiteFooter() {
           <div className="stripe-divider h-12" />
         </div>
 
-        <dl className="flex flex-col gap-4 py-8 font-mono [&_dd]:text-sm [&_dt]:text-right [&_dt]:text-sm [&_dt]:text-muted-foreground [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-2">
+        <dl className="flex flex-col gap-4 py-8 font-mono [&_dd]:text-sm [&_dt]:text-sm [&_dt]:text-muted-foreground sm:[&_dt]:text-right [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-2">
           <Item>
             <dt>Crafted by</dt>
             <dd>
@@ -155,5 +155,10 @@ function Separator({ className, ...props }: React.ComponentProps<"div">) {
 }
 
 function Item({ className, ...props }: React.ComponentProps<"div">) {
-  return <div className={cn("grid grid-cols-2 gap-4", className)} {...props} />
+  return (
+    <div
+      className={cn("grid gap-1 sm:grid-cols-2 sm:gap-4", className)}
+      {...props}
+    />
+  )
 }

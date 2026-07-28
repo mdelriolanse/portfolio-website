@@ -17,7 +17,7 @@ export function AvatarLights({
   return (
     <div
       className={cn(
-        "pointer-events-none relative size-30 rounded-full min-[24rem]:size-32 sm:size-40",
+        "pointer-events-none relative size-24 rounded-full min-[24rem]:size-32 sm:size-40",
         className
       )}
       {...props}

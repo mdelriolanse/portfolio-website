@@ -176,7 +176,7 @@ function Entry({
 }) {
   return (
     <div className="screen-line-bottom p-4">
-      <div className="flex flex-wrap items-baseline justify-between gap-x-2">
+      <div className="flex flex-wrap items-baseline justify-between gap-x-2 max-sm:flex-col max-sm:items-start max-sm:gap-y-0.5">
         <h3 className="font-medium">
           {href ? (
             <a href={href} target="_blank" rel="noopener">
