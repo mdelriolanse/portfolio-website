@@ -57,7 +57,7 @@ export default function Page() {
             <Button asChild variant="outline" size="sm">
               <a href="/resume.pdf" download="Resume.pdf">
                 <DownloadIcon />
-                Download PDF
+                Download
               </a>
             </Button>
           </PageHeadingTitle>
