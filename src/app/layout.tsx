@@ -33,6 +33,13 @@ const darkModeScript = String.raw`
   } catch (_) {}
 
   try {
+    var storedTheme = localStorage.theme
+    if (storedTheme && !['light', 'dark', 'system'].includes(storedTheme)) {
+      document.documentElement.setAttribute('data-theme', storedTheme)
+    }
+  } catch (_) {}
+
+  try {
     if (/(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) {
       document.documentElement.classList.add('os-macos')
     }

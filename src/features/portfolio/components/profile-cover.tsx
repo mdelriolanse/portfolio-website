@@ -1,11 +1,11 @@
 "use client"
 
 import { useRef } from "react"
-import { useTheme } from "next-themes"
 
 import { cn } from "@/lib/utils"
-import { SiteMark } from "@/components/site-mark"
+import { useThemeMode } from "@/hooks/use-theme-mode"
 import { Magnet } from "@/components/react-bits/magnet"
+import { SiteMark } from "@/components/site-mark"
 import { DotGridSpotlight } from "@/registry/transformed/components/dot-grid-spotlight"
 
 const DOT_COLOR = {
@@ -23,8 +23,7 @@ const DOT_COLOR = {
 export function ProfileCover() {
   const containerRef = useRef<HTMLDivElement>(null)
 
-  const { resolvedTheme } = useTheme()
-  const theme = resolvedTheme === "dark" ? "dark" : "light"
+  const theme = useThemeMode() === "dark" ? "dark" : "light"
 
   return (
     <div

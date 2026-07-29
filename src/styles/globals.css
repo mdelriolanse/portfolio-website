@@ -210,6 +210,8 @@
 }
 
 :root {
+  color-scheme: light;
+
   /* white */
   --background: oklch(1 0 0);
 
@@ -349,6 +351,8 @@
 }
 
 .dark {
+  color-scheme: dark;
+
   /* zinc-950 */
   --background: oklch(0.141 0.005 285.823);
 
@@ -455,6 +459,166 @@
   --chart-marker-foreground: oklch(0.9 0 0);
   --chart-ring-background: oklch(0.35 0.01 260 / 0.25);
   --chart-label: oklch(0.75 0.01 260);
+}
+
+/*
+ * Palette themes.
+ *
+ * next-themes still puts `light` or `dark` on <html> (so every `dark:` variant
+ * keeps working) and adds `data-theme="<palette>"` on top. Each palette block
+ * only declares eleven raw colors; the mapping below turns those into the
+ * semantic tokens the app actually consumes. Both selectors match <html>, so
+ * they must stay after `:root` and `.dark` to win on source order.
+ */
+[data-theme] {
+  --background: var(--t-bg);
+  --foreground: var(--t-fg);
+
+  --primary: var(--t-accent);
+  --primary-foreground: var(--t-bg);
+  --secondary: var(--t-elev);
+  --secondary-foreground: var(--t-fg);
+
+  --muted: var(--t-elev);
+  --muted-foreground: var(--t-muted);
+
+  --card: var(--t-card);
+  --card-foreground: var(--t-fg);
+  --popover: var(--t-card);
+  --popover-foreground: var(--t-fg);
+
+  --accent: var(--t-elev);
+  --accent-muted: color-mix(in oklab, var(--t-accent) 15%, transparent);
+  --accent-foreground: var(--t-fg);
+
+  --border: var(--t-border);
+  --line: color-mix(in oklab, var(--t-border) 64%, var(--t-bg));
+  --input: var(--t-border);
+  --ring: var(--t-accent);
+
+  --info: var(--t-blue);
+  --success: var(--t-green);
+  --destructive: var(--t-red);
+  --link: var(--t-blue);
+
+  --surface: var(--t-card);
+  --surface-foreground: var(--t-fg);
+
+  --code: var(--t-bg);
+  --code-foreground: var(--t-fg);
+  --code-number: color-mix(in oklab, var(--t-muted) 60%, transparent);
+  --code-highlight: color-mix(in oklab, var(--t-accent) 10%, transparent);
+
+  --selection: var(--t-accent);
+  --selection-foreground: var(--t-bg);
+
+  --sidebar: var(--t-card);
+  --sidebar-foreground: var(--t-fg);
+  --sidebar-primary: var(--t-accent);
+  --sidebar-primary-foreground: var(--t-bg);
+  --sidebar-accent: var(--t-elev);
+  --sidebar-accent-foreground: var(--t-fg);
+  --sidebar-border: var(--t-border);
+  --sidebar-ring: var(--t-accent);
+
+  --chart-1: var(--t-accent);
+  --chart-2: var(--t-blue);
+  --chart-3: var(--t-green);
+  --chart-4: var(--t-yellow);
+  --chart-5: var(--t-red);
+  --chart-background: var(--t-bg);
+  --chart-foreground: var(--t-fg);
+  --chart-foreground-muted: var(--t-muted);
+  --chart-crosshair: var(--t-muted);
+  --chart-grid: color-mix(in oklab, var(--t-border) 64%, var(--t-bg));
+  --chart-tooltip-background: var(--t-card);
+  --chart-tooltip-foreground: var(--t-fg);
+  --chart-tooltip-muted: var(--t-muted);
+  --chart-marker-background: var(--t-elev);
+  --chart-marker-border: var(--t-border);
+  --chart-marker-foreground: var(--t-fg);
+  --chart-ring-background: color-mix(in oklab, var(--t-border) 25%, transparent);
+  --chart-label: var(--t-muted);
+}
+
+[data-theme="catppuccin"] {
+  color-scheme: dark;
+
+  --t-bg: #1e1e2e;
+  --t-card: #181825;
+  --t-elev: #313244;
+  --t-fg: #cdd6f4;
+  --t-muted: #a6adc8;
+  --t-border: #45475a;
+  --t-accent: #cba6f7;
+  --t-red: #f38ba8;
+  --t-green: #a6e3a1;
+  --t-yellow: #f9e2af;
+  --t-blue: #89b4fa;
+}
+
+[data-theme="dracula"] {
+  color-scheme: dark;
+
+  --t-bg: #282a36;
+  --t-card: #21222c;
+  --t-elev: #343746;
+  --t-fg: #f8f8f2;
+  --t-muted: #8b90ad;
+  --t-border: #44475a;
+  --t-accent: #bd93f9;
+  --t-red: #ff5555;
+  --t-green: #50fa7b;
+  --t-yellow: #f1fa8c;
+  --t-blue: #8be9fd;
+}
+
+[data-theme="nord"] {
+  color-scheme: dark;
+
+  --t-bg: #2e3440;
+  --t-card: #292e39;
+  --t-elev: #3b4252;
+  --t-fg: #eceff4;
+  --t-muted: #8f9cb3;
+  --t-border: #4c566a;
+  --t-accent: #88c0d0;
+  --t-red: #bf616a;
+  --t-green: #a3be8c;
+  --t-yellow: #ebcb8b;
+  --t-blue: #81a1c1;
+}
+
+[data-theme="gruvbox"] {
+  color-scheme: dark;
+
+  --t-bg: #282828;
+  --t-card: #1d2021;
+  --t-elev: #3c3836;
+  --t-fg: #ebdbb2;
+  --t-muted: #a89984;
+  --t-border: #504945;
+  --t-accent: #fe8019;
+  --t-red: #fb4934;
+  --t-green: #b8bb26;
+  --t-yellow: #fabd2f;
+  --t-blue: #83a598;
+}
+
+[data-theme="solarized-light"] {
+  color-scheme: light;
+
+  --t-bg: #fdf6e3;
+  --t-card: #f5efdc;
+  --t-elev: #eee8d5;
+  --t-fg: #586e75;
+  --t-muted: #839496;
+  --t-border: #ded8c4;
+  --t-accent: #268bd2;
+  --t-red: #dc322f;
+  --t-green: #859900;
+  --t-yellow: #b58900;
+  --t-blue: #2aa198;
 }
 
 @layer base {

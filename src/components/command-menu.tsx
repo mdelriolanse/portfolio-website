@@ -25,6 +25,7 @@ import { useTheme } from "next-themes"
 import { useHotkeys } from "react-hotkeys-hook"
 import { toast } from "sonner"
 
+import { PALETTE_THEMES } from "@/config/themes"
 import { trackEvent } from "@/lib/events"
 import { useMutationObserver } from "@/hooks/use-mutation-observer"
 import {
@@ -36,6 +37,7 @@ import {
   CommandList,
   CommandShortcut,
 } from "@/components/ui/command"
+import { ThemeSwatch } from "@/components/theme-selector"
 import { ComponentIcon } from "@/features/doc/components/component-icon"
 import type { DocPreview } from "@/features/doc/types/document"
 import { SOCIAL_ICONS } from "@/features/portfolio/components/social-link-icons"
@@ -239,7 +241,7 @@ export function CommandMenu({
   }, [])
 
   const createThemeHandler = useCallback(
-    (theme: "light" | "dark" | "system") => () => {
+    (theme: string) => () => {
       setOpen(false)
 
       trackEvent({
@@ -448,6 +450,18 @@ export function CommandMenu({
                 <MonitorIcon />
                 System
               </CommandMenuItem>
+
+              {PALETTE_THEMES.map((paletteTheme) => (
+                <CommandMenuItem
+                  key={paletteTheme.value}
+                  keywords={["theme", "palette"]}
+                  onHighlight={handleCommandHighlight}
+                  onSelect={createThemeHandler(paletteTheme.value)}
+                >
+                  <ThemeSwatch theme={paletteTheme.value} />
+                  {paletteTheme.label}
+                </CommandMenuItem>
+              ))}
             </CommandGroup>
 
             <CommandLinkGroup

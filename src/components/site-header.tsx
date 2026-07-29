@@ -3,10 +3,10 @@ import Link from "next/link"
 
 import { MAIN_NAV } from "@/config/site"
 import { Separator } from "@/components/base/ui/separator"
-import { SiteMark } from "@/components/site-mark"
 import { NavDesktop } from "@/components/nav-desktop"
 import { NavItemGitHub } from "@/components/nav-item-github"
-import { ThemeToggle } from "@/components/theme-toggle"
+import { SiteMark } from "@/components/site-mark"
+import { ThemeSelector } from "@/components/theme-selector"
 import { getAllDocs } from "@/features/doc/data/documents"
 import type { DocPreview } from "@/features/doc/types/document"
 
@@ -54,7 +54,7 @@ export function SiteHeader() {
             orientation="vertical"
             className="mx-2 data-vertical:h-5 data-vertical:self-center"
           />
-          <ThemeToggle />
+          <ThemeSelector />
         </div>
 
         {/* <div className="absolute top-[-3.5px] left-[-4.5px] z-2 flex size-2 border border-line bg-background" /> */}
