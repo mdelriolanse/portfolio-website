@@ -3,6 +3,7 @@
 import { useRef, useState } from "react"
 import { motion, useInView } from "motion/react"
 
+import { cn } from "@/lib/utils"
 import {
   clipRevealTransition,
   DEFAULT_CHART_ENTER_TRANSITION,
@@ -461,7 +462,7 @@ function Tooltip({ hover }: { hover: Hover }) {
   )
 }
 
-export function SafetyIndexChart() {
+export function SafetyIndexChart({ className }: { className?: string }) {
   const ref = useRef<HTMLElement>(null)
   // The clip rect lives in <defs>, which never intersects; drive it from the figure.
   const isInView = useInView(ref, { once: true, margin: "-64px" })
@@ -470,7 +471,10 @@ export function SafetyIndexChart() {
   return (
     <figure
       aria-label="Bio/Chem Safety Index (BCSI) plotted against the Epoch AI Capabilities Index for open- and closed-weight model releases from 2025 to 2027. Capability trends rise while open-weight safety declines into the high-risk band below BCSI 0.5."
-      className="not-prose my-[1.25em] overflow-hidden rounded-xl bg-surface text-surface-foreground inset-ring-1 inset-ring-border/64"
+      className={cn(
+        "not-prose my-[1.25em] overflow-hidden rounded-xl bg-surface text-surface-foreground inset-ring-1 inset-ring-border/64",
+        className
+      )}
       ref={ref}
     >
       <div className="overflow-x-auto">
