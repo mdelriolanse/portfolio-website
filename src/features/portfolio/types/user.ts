@@ -29,6 +29,8 @@ export type User = {
     company: string
     website: string
     experienceId?: string
+    /** `2` spans both overview columns (default is one cell). */
+    span?: 1 | 2
   }[]
   /** Rich about section; supports Markdown */
   about: string

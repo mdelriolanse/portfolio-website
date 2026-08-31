@@ -1,5 +1,4 @@
-import { urlToName } from "@/utils/url"
-import { LinkIcon, MapPinIcon } from "lucide-react"
+import { MapPinIcon } from "lucide-react"
 
 import { USER } from "@/features/portfolio/data/user"
 
@@ -29,6 +28,7 @@ export function Overview() {
               company={job.company}
               website={job.website}
               experienceId={job.experienceId}
+              span={job.span}
             />
           )
         })}
@@ -54,20 +54,6 @@ export function Overview() {
         )}
 
         <EmailItem emailB64={USER.emailB64} />
-
-        <IntroItem>
-          <IntroItemIcon>
-            <LinkIcon />
-          </IntroItemIcon>
-          <IntroItemContent>
-            <IntroItemLink
-              href={USER.website}
-              aria-label={`Personal website: ${urlToName(USER.website)}`}
-            >
-              {urlToName(USER.website)}
-            </IntroItemLink>
-          </IntroItemContent>
-        </IntroItem>
       </PanelContent>
 
       <div className="pointer-events-none absolute top-px bottom-0 left-1/2 -z-1 w-px -translate-x-2.25 bg-[linear-gradient(to_bottom,var(--line)_4px,transparent_2px)] bg-size-[1px_6px] bg-repeat-y max-sm:hidden" />

@@ -15,6 +15,7 @@ type JobItemProps = {
   company: string
   website: string
   experienceId?: string
+  span?: 1 | 2
 }
 
 export function JobItem({
@@ -22,9 +23,10 @@ export function JobItem({
   company,
   website,
   experienceId,
+  span = 1,
 }: JobItemProps) {
   return (
-    <IntroItem className="sm:col-span-2">
+    <IntroItem className={span === 2 ? "sm:col-span-2" : undefined}>
       <IntroItemIcon>{getJobIcon(title)}</IntroItemIcon>
 
       <IntroItemContent>

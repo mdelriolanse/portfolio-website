@@ -8,12 +8,13 @@ export const USER: User = {
   // TODO: set these to what you actually use — they feed the vCard and JSON-LD.
   gender: "male",
   pronouns: "he/him",
-  bio: "Building AI infrastructure, and probing where it breaks.",
+  bio: "GPU inference infrastructure and LLM safety research.",
   flipSentences: [
-    "Building AI infrastructure, and probing where it breaks.",
-    "ECE @ Cornell.",
-    "LLM safety researcher.",
-    "Software engineer.",
+    "Shipped PrivateMind's Batch API on NVIDIA B200/B300 GPUs.",
+    "Served frontier LLMs on distributed HGX boards.",
+    "Co-authored Open Weight, Open Risk — a training-free jailbreak.",
+    "Built Dispatch: findings in, ready-to-merge GitHub PRs out.",
+    "Undergraduate, ECE @ Cornell.",
   ],
   address: "Ithaca, New York",
   // Left blank on purpose: a number on a résumé is not the same as a number on
@@ -21,11 +22,11 @@ export const USER: User = {
   phoneNumberB64: "",
   emailB64: "bWQyMjkyQGNvcm5lbGwuZWR1", // md2292@cornell.edu
   website: "https://mdelriolanse.com",
-  jobTitle: "ECE @ Cornell",
+  jobTitle: "Undergraduate, ECE @ Cornell",
   jobs: [
     {
       title: "Undergraduate, ECE",
-      company: "Cornell University",
+      company: "Cornell",
       website: "https://www.cornell.edu",
     },
   ],
