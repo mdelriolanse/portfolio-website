@@ -20,24 +20,28 @@ export const EXPERIENCES: Experience[] = [
         title: "Software Engineering Intern, PrivateMind Platform",
         employmentPeriod: {
           start: "06.2026",
+          end: "08.2026",
         },
         employmentType: "Internship",
         icon: <CodeXmlIcon />,
-        description: `- Developing PrivateMind, Options IT's secure and private AI infrastructure for enterprise environments.
-- Deploying distributed systems to serve open-weight models across NVIDIA B300/B200 GPU infrastructure.
-- Leveraging data center colocation across major financial hubs New York and London to deliver low-latency compute while enforcing hardware-isolated, zero-trust boundaries for T1 financial institutions.`,
+        description: `- Owned and shipped an OpenAI-compatible Batch API end to end (async worker draining against GPU capacity, per-request billing with exactly-once semantics, DB schema, SDK, Helm deployment), backed by ~7,000 lines of contract tests.
+- Benchmarked frontier LLMs before production serving: Poisson-distributed concurrency sweeps measuring time-to-first-token, inter-token latency, end-to-end latency, and throughput at p50/p95/p99 across multi-GPU HGX deployments. Owned the gateway load-management layer (priority scheduling, per-model streaming timeouts/keepalive, per-key in-flight limits, token-budget admission control gating batch work on GPU memory pressure) on NVIDIA B200/B300 GPUs.
+- Brought a novel text-to-image model through full production deployment (GPU configuration, gateway routing, bounded concurrency, per-image pricing, UI) and built the platform content-safety layer.
+- Merged 133 PRs across 10 repos (Rust, TypeScript, Python, SQL, Helm); unified two divergent agent execution paths, deleting ~6,000 lines of legacy code.`,
         skills: [
           "Kubernetes",
           "OpenShift",
+          "Helm",
           "vLLM",
           "SGLang",
-          "CUDA C++",
-          "Distributed Systems",
+          "Rust",
+          "TypeScript",
+          "Python",
+          "PostgreSQL",
         ],
         isExpanded: true,
       },
     ],
-    isCurrentEmployer: true,
   },
   {
     id: "cornell",
@@ -51,11 +55,12 @@ export const EXPERIENCES: Experience[] = [
         title: "Engineering Manager & ML Engineer, Generative AI at Cornell",
         employmentPeriod: {
           start: "10.2025",
+          end: "05.2026",
         },
         employmentType: "Part-time",
         icon: <UsersIcon />,
-        description: `- Led 8-person engineering team at Cornell in building an ESG risk monitoring platform for Investcorp's investment portfolio business, driving engineering efforts while coordinating with stakeholders worldwide (Feb. 2026 – May 2026).
-- Implemented vendor due diligence agentic pipeline with fintech company QuickFi (Sept. 2025 – Dec. 2025).`,
+        description: `- Led an 8-person engineering team building an ESG risk monitoring platform for Investcorp ($60B+ AUM).
+- Implemented a vendor due-diligence agentic pipeline with fintech company QuickFi.`,
         skills: [
           "TypeScript",
           "Python",
@@ -69,12 +74,12 @@ export const EXPERIENCES: Experience[] = [
         title: "Undergraduate Research Assistant, Cornell NLP Group",
         employmentPeriod: {
           start: "10.2025",
+          end: "05.2026",
         },
         employmentType: "Part-time",
         icon: <FlaskConicalIcon />,
-        description: `- Collaborated with a PhD researcher in Cornell NLP Group on LLM safety alignment.
-- Engineered pipeline to evaluate safety-alignment across frontier models in adversarial prompt settings.
-- Worked with B200-class GPUs to run LLMs locally, using tools like vLLM and SGLang.`,
+        description: `- Built the evaluation pipeline behind "Open Weight, Open Risk" (co-author): 15 frontier open-weight models across 800 WMDP-derived adversarial bio/chem requests, run locally on B200-class GPUs with vLLM and SGLang.
+- Co-designed the training-free "inception" attack, in which a small uncensored 7B architect model pivots target reasoning and lifts compliance from a ~10% baseline to >95% under 5 iterations, exposing "shallow alignment" in open-weight reasoning models, with a PhD researcher at the Cornell NLP Group.`,
         skills: ["Python", "vLLM", "SGLang", "LLM Safety", "Evaluation"],
         isExpanded: true,
       },

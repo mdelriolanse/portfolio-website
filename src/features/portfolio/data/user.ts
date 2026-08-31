@@ -21,25 +21,18 @@ export const USER: User = {
   phoneNumberB64: "",
   emailB64: "bWQyMjkyQGNvcm5lbGwuZWR1", // md2292@cornell.edu
   website: "https://mdelriolanse.com",
-  jobTitle: "Software Engineering Intern",
+  jobTitle: "ECE @ Cornell",
   jobs: [
     {
-      title: "Software Engineering Intern",
-      company: "Options Technology",
-      website: "https://www.options-it.com/",
-      experienceId: "options-technology",
-    },
-    {
-      title: "Engineering Manager & ML Engineer",
-      company: "Generative AI at Cornell",
-      website: "https://www.cornellgenai.dev/",
-      experienceId: "cornell",
+      title: "Undergraduate, ECE",
+      company: "Cornell University",
+      website: "https://www.cornell.edu",
     },
   ],
   about: `- I’m Mateo — an Electrical & Computer Engineering student at Cornell, working on the infrastructure that serves large models and the research that stress-tests them.
-- At [Options Technology](https://www.options-it.com) I build PrivateMind, private AI infrastructure serving open-weight models on B300/B200 GPUs across colocated data centers in New York and London.
-- At the [Cornell NLP Group](https://nlp.cornell.edu) I work on LLM safety alignment, evaluating frontier models under adversarial prompting.
-- Author of [Open Weight, Open Risk](https://aochong-li.github.io/open-weight-open-risk/), a training-free jailbreak that steers a target model’s chain-of-thought, and [Dispatch](https://dispatch-eosin.vercel.app/), an agentic pentesting platform that won Best Developer Tool at the 2026 Cornell AI Hackathon.
+- At [Options Technology](https://www.options-it.com) I built PrivateMind, shipping an OpenAI-compatible Batch API, GPU load management, and production text-to-image on B200/B300 GPUs.
+- At the [Cornell NLP Group](https://nlp.cornell.edu) I co-authored [Open Weight, Open Risk](https://aochong-li.github.io/open-weight-open-risk/), a training-free jailbreak that steers a target model’s chain-of-thought.
+- Built [Dispatch](https://dispatch-eosin.vercel.app/), an agentic pentesting platform that won Best Developer Tool at the 2026 Cornell AI Hackathon.
 `,
   // TODO: replace with your own images (see /public). The upstream avatar-lights
   // effect wants a matched set: light/dark × on/off.
