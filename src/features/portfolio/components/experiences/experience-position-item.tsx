@@ -3,16 +3,10 @@ import { BriefcaseBusinessIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Tag } from "@/components/ui/tag"
-import {
-  Collapsible,
-  CollapsibleChevronsUpDownIcon,
-} from "@/components/base/collapsible-animated"
-import {
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/base/ui/collapsible"
 import { Separator } from "@/components/base/ui/separator"
+import { CollapsibleDetails } from "@/components/collapsible-details"
 import { Markdown } from "@/components/markdown"
+import { ChevronsUpDownIcon } from "@/registry/components/chevrons-up-down-icon"
 import type { ExperiencePosition } from "@/features/portfolio/types/experiences"
 
 export function ExperiencePositionItem({
@@ -25,87 +19,91 @@ export function ExperiencePositionItem({
   const duration = formatDuration(start, end)
 
   return (
-    <Collapsible
-      className="group/experience-position relative"
-      defaultOpen={position.isExpanded}
-      disabled={!position.description}
-    >
+    <div className="group/experience-position relative">
       <div className="pointer-events-none absolute bottom-0 left-3 hidden size-4 bg-background group-last/experience-position:flex">
         <span className="size-full -translate-y-2.25 rounded-bl-sm border-b border-l" />
       </div>
 
-      <CollapsibleTrigger
-        className={cn(
-          "group block w-full text-left",
+      <CollapsibleDetails
+        defaultOpen={position.isExpanded}
+        disabled={!position.description}
+        summaryClassName={cn(
+          "block w-full text-left",
           "relative before:absolute before:-top-1 before:-right-1 before:-bottom-1.5 before:left-7 before:-z-1 before:rounded-lg before:transition-[background-color] before:ease-out hover:before:bg-accent-muted",
-          "outline-none focus-visible:before:inset-ring-2 focus-visible:before:inset-ring-ring/50",
-          "data-disabled:before:content-none"
+          "outline-none focus-visible:before:inset-ring-2 focus-visible:before:inset-ring-ring/50"
         )}
+        summary={
+          <>
+            <div className="relative z-1 mb-1 flex items-start gap-3 text-base">
+              <div
+                className={cn(
+                  "flex size-6 shrink-0 items-center justify-center rounded-md",
+                  "bg-muted text-muted-foreground",
+                  "border border-muted-foreground/15 ring-1 ring-line ring-offset-1 ring-offset-background",
+                  "[&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
+                )}
+              >
+                {position.icon ?? <BriefcaseBusinessIcon />}
+              </div>
+
+              <h4 className="flex-1 font-medium text-balance">
+                {position.title}
+              </h4>
+
+              {position.description && (
+                <div className="shrink-0 text-muted-foreground [&_svg]:pointer-events-none [&_svg]:h-lh [&_svg]:w-4">
+                  <ChevronsUpDownIcon duration={0.15} />
+                </div>
+              )}
+            </div>
+
+            <dl className="flex items-center gap-2 pl-9 text-sm text-muted-foreground">
+              {position.employmentType && (
+                <>
+                  <div>
+                    <dt className="sr-only">Employment Type</dt>
+                    <dd>{position.employmentType}</dd>
+                  </div>
+                  <Separator
+                    className="data-vertical:h-4 data-vertical:self-center"
+                    orientation="vertical"
+                  />
+                </>
+              )}
+
+              <div>
+                <dt className="sr-only">Employment Period</dt>
+                <dd className="flex items-center gap-0.5 tabular-nums">
+                  <span>{start}</span>
+                  <span className="font-mono">—</span>
+                  <span>{isOngoing ? "Present" : end}</span>
+                </dd>
+              </div>
+
+              {duration && (
+                <>
+                  <Separator
+                    className="data-vertical:h-4 data-vertical:self-center"
+                    orientation="vertical"
+                  />
+                  <div>
+                    <dt className="sr-only">Duration</dt>
+                    <dd className="tabular-nums">{duration}</dd>
+                  </div>
+                </>
+              )}
+            </dl>
+          </>
+        }
       >
-        <div className="relative z-1 mb-1 flex items-start gap-3 text-base">
-          <div
-            className={cn(
-              "flex size-6 shrink-0 items-center justify-center rounded-md",
-              "bg-muted text-muted-foreground",
-              "border border-muted-foreground/15 ring-1 ring-line ring-offset-1 ring-offset-background",
-              "[&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
-            )}
-          >
-            {position.icon ?? <BriefcaseBusinessIcon />}
-          </div>
-
-          <h4 className="flex-1 font-medium text-balance">{position.title}</h4>
-
-          <div className="shrink-0 text-muted-foreground group-data-disabled:hidden [&_svg]:h-lh [&_svg]:w-4">
-            <CollapsibleChevronsUpDownIcon duration={0.15} />
-          </div>
-        </div>
-
-        <dl className="flex items-center gap-2 pl-9 text-sm text-muted-foreground">
-          {position.employmentType && (
-            <>
-              <div>
-                <dt className="sr-only">Employment Type</dt>
-                <dd>{position.employmentType}</dd>
-              </div>
-              <Separator
-                className="data-vertical:h-4 data-vertical:self-center"
-                orientation="vertical"
-              />
-            </>
-          )}
-
-          <div>
-            <dt className="sr-only">Employment Period</dt>
-            <dd className="flex items-center gap-0.5 tabular-nums">
-              <span>{start}</span>
-              <span className="font-mono">—</span>
-              <span>{isOngoing ? "Present" : end}</span>
-            </dd>
-          </div>
-
-          {duration && (
-            <>
-              <Separator
-                className="data-vertical:h-4 data-vertical:self-center"
-                orientation="vertical"
-              />
-              <div>
-                <dt className="sr-only">Duration</dt>
-                <dd className="tabular-nums">{duration}</dd>
-              </div>
-            </>
-          )}
-        </dl>
-      </CollapsibleTrigger>
-
-      <CollapsibleContent className="overflow-hidden">
         {position.description && (
-          <div className="typeset typeset-description pt-3 pb-1 pl-9">
-            <Markdown>{position.description}</Markdown>
+          <div className="overflow-hidden">
+            <div className="typeset typeset-description pt-3 pb-1 pl-9">
+              <Markdown>{position.description}</Markdown>
+            </div>
           </div>
         )}
-      </CollapsibleContent>
+      </CollapsibleDetails>
 
       {Array.isArray(position.skills) && position.skills.length > 0 && (
         <ul className="flex flex-wrap gap-1.5 pt-3 pl-9">
@@ -116,7 +114,7 @@ export function ExperiencePositionItem({
           ))}
         </ul>
       )}
-    </Collapsible>
+    </div>
   )
 }
 

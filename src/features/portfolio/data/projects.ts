@@ -13,7 +13,7 @@ export const PROJECTS: Project[] = [
     title: "Dispatch",
     icon: ShieldCheckIcon,
     period: {
-      start: "02.2026",
+      start: "03.2026",
     },
     link: "https://dispatch-eosin.vercel.app/",
     skills: [
@@ -27,9 +27,8 @@ export const PROJECTS: Project[] = [
       "Security",
     ],
     description: `Agentic penetration testing platform that turns vulnerability findings into ready-to-merge GitHub PRs. / Best Developer Tool — [Cornell AI Hackathon 2026](https://github.com/Arsh-S/Dispatch)
-- Orchestrates security agents using Mastra and OpenRouter, with isolated execution via Blaxel Sandboxes
-- Slackbot and Datadog middleware for triggering scans and ingesting logs to surface findings
-- Converts raw scan output into reviewable, mergeable remediation PRs
+- Orchestrated security agents using Mastra and OpenRouter, with isolated execution via Blaxel Sandboxes
+- Designed Slackbot and Datadog middleware for triggering scans and ingesting logs to surface findings
 `,
     isExpanded: true,
   },
@@ -40,7 +39,7 @@ export const PROJECTS: Project[] = [
     period: {
       start: "10.2025",
     },
-    link: "https://aochong-li.github.io/open-weight-open-risk/",
+    link: "https://www.aochongoliverli.com/open-weight-open-risk/",
     skills: [
       "Python",
       "vLLM",
@@ -50,7 +49,7 @@ export const PROJECTS: Project[] = [
       "Evaluation",
       "Research",
     ],
-    description: `Training-free jailbreak in which an uncensored model steers the target's chain-of-thought. / [Publication](https://aochong-li.github.io/open-weight-open-risk/) · [Source](https://github.com/Aochong-Li/open-weight-open-risk)
+    description: `Training-free jailbreak in which an uncensored model steers the target's chain-of-thought. / [Publication](https://www.aochongoliverli.com/open-weight-open-risk/)
 - Achieves near-universal compliance across open-weight models (DeepSeek, Kimi, GLM, Qwen)
 - Iterative prompt injection and LLM-as-judge pipelines to streamline evaluation
 - Evaluated 15 frontier models across 800 WMDP-derived biosecurity and chemical security requests
@@ -73,9 +72,8 @@ export const PROJECTS: Project[] = [
       "Vercel",
       "Railway",
     ],
-    description: `Moderated, unbiased debate platform built on organized layouts and AI summaries. / [Source](https://github.com/mdelriolanse/Debately)
-- Fact-checking pipelines with web data normalization, preventing hallucinations in consensus
-- LLM-driven consensus tracker built on the Anthropic API, Supabase, and Vercel/Railway
+    description: `Moderated debate platform with fact-checking pipelines and an LLM-driven consensus tracker (Anthropic API, Supabase, Vercel/Railway). / [Source](https://github.com/mdelriolanse/Debately)
+- Engineered fact-checking pipelines with web data normalization, preventing hallucinations in consensus
 `,
   },
   {
@@ -87,9 +85,7 @@ export const PROJECTS: Project[] = [
     },
     link: "https://github.com/mdelriolanse/tensor-atelier",
     skills: ["Python", "PyTorch", "CUDA", "Profiling", "ML Infrastructure"],
-    description: `PyTorch interface with automatic optimization and profiling, built to cut boilerplate in ML research. / [Source](https://github.com/mdelriolanse/tensor-atelier)
-- Pluggable architecture with configurable multi-accelerator support
-- Automatic data splitting and built-in profiling hooks
+    description: `Pluggable PyTorch interface with automatic optimization/profiling and configurable multi-accelerator support, reducing boilerplate in ML research. / [Source](https://github.com/mdelriolanse/tensor-atelier)
 `,
   },
 ]

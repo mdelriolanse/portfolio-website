@@ -31,7 +31,7 @@ export const USER: User = {
   ],
   about: `- I’m Mateo — an Electrical & Computer Engineering student at Cornell, working on the infrastructure that serves large models and the research that stress-tests them.
 - At [Options Technology](https://www.options-it.com) I built PrivateMind, shipping an OpenAI-compatible Batch API, GPU load management, and production text-to-image on B200/B300 GPUs.
-- At the [Cornell NLP Group](https://nlp.cornell.edu) I co-authored [Open Weight, Open Risk](https://aochong-li.github.io/open-weight-open-risk/), a training-free jailbreak that steers a target model’s chain-of-thought.
+- At the [Cornell NLP Group](https://nlp.cornell.edu) I co-authored [Open Weight, Open Risk](https://www.aochongoliverli.com/open-weight-open-risk/), a training-free jailbreak that steers a target model’s chain-of-thought.
 - Built [Dispatch](https://dispatch-eosin.vercel.app/), an agentic pentesting platform that won Best Developer Tool at the 2026 Cornell AI Hackathon.
 `,
   // TODO: replace with your own images (see /public). The upstream avatar-lights
