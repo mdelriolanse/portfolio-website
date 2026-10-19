@@ -19,7 +19,7 @@ const WORK: Work[] = [
     title: "PrivateMind",
     description:
       "OpenAI-compatible batch inference, GPU load management, and production text-to-image on B200/B300s.",
-    links: [{ label: "View", href: "https://www.privatemind.com/" }],
+    links: [{ label: "Site", href: "https://www.privatemind.com/" }],
   },
   {
     category: "Research",
@@ -28,17 +28,17 @@ const WORK: Work[] = [
       "A training-free jailbreak that steers a target model’s chain-of-thought to expose shallow alignment.",
     links: [
       {
-        label: "View",
+        label: "Site",
         href: "https://www.aochongoliverli.com/open-weight-open-risk/",
       },
     ],
   },
   {
-    category: "Builder",
+    category: "Cybersecurity",
     title: "Dispatch",
     description:
       "Agentic pentesting platform—and Best Developer Tool at the 2026 Cornell AI Hackathon.",
-    links: [{ label: "View", href: "https://dispatch-eosin.vercel.app/" }],
+    links: [{ label: "Site", href: "https://dispatch-eosin.vercel.app/" }],
   },
   {
     category: "Edge AI",
@@ -46,17 +46,17 @@ const WORK: Work[] = [
     description:
       "An always-on maintenance agent that runs entirely on one GB10 and proves its own air gap.",
     links: [
-      { label: "Post", href: "/blog/groundwork" },
+      { label: "Blog", href: "/blog/groundwork" },
       { label: "Site", href: "https://get-groundwork.vercel.app" },
     ],
   },
   {
-    category: "Builder",
-    title: "marko",
+    category: "Navigation",
+    title: "Marko",
     description:
       "Indoor navigation from one phone: no beacons, just a trail drawn on the real floor.",
     links: [
-      { label: "Post", href: "/blog/marko" },
+      { label: "Blog", href: "/blog/marko" },
       { label: "Site", href: "https://get-marko.vercel.app" },
     ],
   },
