@@ -24,11 +24,12 @@ export const EXPERIENCES: Experience[] = [
         },
         employmentType: "Internship",
         icon: <CodeXmlIcon />,
-        description: `- Owned and shipped an OpenAI-compatible Batch API end-to-end (async worker draining against GPU capacity, per-request billing, DB schema, SDK, Helm deployment), backed by ~7,000 lines of contract tests; integrated Pure Storage FlashBlade S3 results storage for large inference artifacts.
-- Benchmarked frontier LLMs before production serving: Poisson-distributed concurrency sweeps measuring time-to-first-token, inter-token latency, end-to-end latency, pre-emption, and throughput at p50/p95/p99 across multi-GPU HGX deployments.
-- Owned the gateway load-management layer (priority scheduling, per-model streaming timeouts/keepalive, per-key concurrency limits, token-budget admission control gating batch work on GPU memory pressure) on NVIDIA B200/B300 GPUs.
-- Brought a novel text-to-image model through full production deployment (GPU configuration, gateway routing, bounded concurrency, per-image pricing, UI) and built the platform content-safety layer.
-- Merged 133 PRs across 10 repos (Rust, TypeScript, Python, SQL, Helm); unified two divergent agent execution paths, deleting ~6,000 lines of legacy code.`,
+        description: `- Owned and shipped an OpenAI-compatible REST Batch API end-to-end on cloud-native Kubernetes infrastructure: async GPU workers, exactly-once billing for consistency, DB schema, SDK, Helm deployment, ~7,000 lines of tests.
+- Benchmarked frontier LLMs before production serving: Poisson-distributed concurrency sweeps measuring time-to-first-token, inter-token latency, and throughput at p50/p95/p99 across multi-GPU HGX deployments.
+- Owned LLM inference gateway load management on NVIDIA B200/B300 GPUs: priority scheduling so batch cannot starve interactive chat, per-model streaming timeouts, and token-budget admission control on GPU memory pressure.
+- Deployed a novel text-to-image model to production (GPU config, gateway routing, bounded concurrency, pricing, UI) and built the content-safety guardrail layer: a moderation API and an actionable error taxonomy for opaque refusals.
+- Merged 133 PRs across 10 repos in Rust, TypeScript, Python, SQL, and Helm through GitHub Actions CI/CD, building distributed systems for scalability; unified two agent execution paths, deleting ~6,000 legacy lines.
+- Shipped a nightly memory-consolidation engine, an automation builder driven by a backend tool-calling loop, chat streaming hardened against state bugs, and an inline co-editing canvas with conflict auto-resolution.`,
         skills: [
           "Linux",
           "Kubernetes",
@@ -36,7 +37,7 @@ export const EXPERIENCES: Experience[] = [
           "Helm",
           "vLLM",
           "SGLang",
-          "Pure Storage FlashBlade S3",
+          "GitHub Actions",
           "Rust",
           "TypeScript",
           "Python",
@@ -62,9 +63,8 @@ export const EXPERIENCES: Experience[] = [
         },
         employmentType: "Part-time",
         icon: <UsersIcon />,
-        description: `- Led an 8-person engineering team building an ESG risk monitoring platform for Investcorp ($60B+ AUM).
-- Implemented a vendor due-diligence agentic pipeline with fintech company QuickFi.
-- Collected vendor data from government websites, regulatory filings, and public databases; reconciled it into consolidated profiles and generated written due-diligence reports.`,
+        description: `- Led an 8-person team on full-stack development of an ESG risk monitoring platform for Investcorp ($60B+ AUM).
+- Built a vendor due-diligence agentic data pipeline with fintech company QuickFi, reconciling vendor data from filings.`,
         skills: [
           "TypeScript",
           "Python",
@@ -82,8 +82,8 @@ export const EXPERIENCES: Experience[] = [
         },
         employmentType: "Part-time",
         icon: <FlaskConicalIcon />,
-        description: `- Built the evaluation pipeline behind "[Open Weight, Open Risk](https://www.aochongoliverli.com/open-weight-open-risk)" (co-author): 15 frontier open-weight models across 800 WMDP-derived adversarial bio/chem requests, run locally on B200-class GPUs with vLLM and SGLang.
-- Co-designed the training-free "inception" attack, in which a small uncensored 7B architect model pivots target reasoning and lifts compliance from a ~10% baseline to >95% under 5 iterations, exposing "shallow alignment" in open-weight reasoning models, with a PhD researcher at the Cornell NLP Group.`,
+        description: `- Built the AI security evaluation pipeline behind "[Open Weight, Open Risk](https://www.aochongoliverli.com/open-weight-open-risk)" (co-author): 15 frontier open-weight LLMs across 800 WMDP-derived adversarial bio/chem requests, run locally on B200-class GPUs with vLLM and SGLang.
+- Co-designed the training-free inception attack: a small uncensored 7B architect model pivots target reasoning, lifting compliance from ~10% to >95% in 5 iterations, exposing shallow alignment in open-weight reasoning models.`,
         skills: ["Python", "vLLM", "SGLang", "LLM Safety", "Evaluation"],
         isExpanded: true,
       },
@@ -105,8 +105,8 @@ export const EXPERIENCES: Experience[] = [
         },
         employmentType: "Internship",
         icon: <BriefcaseBusinessIcon />,
-        description: `- Analyzed immunological datasets with Dr. Amit Lakhanpal and generated protein embeddings using Meta's ESM model to support rheumatoid arthritis treatment research.`,
-        skills: ["Python", "ESM", "Protein Embeddings", "R"],
+        description: `- Analyzed immunological datasets with Dr. Amit Lakhanpal (Pandas, NumPy, scikit-learn, PyTorch, TensorFlow, VAEs, t-SNE) to extract rheumatoid arthritis signatures; fine-tuned neural networks, generated ESM embeddings.`,
+        skills: ["Python", "PyTorch", "TensorFlow", "scikit-learn", "ESM"],
       },
     ],
   },

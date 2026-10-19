@@ -1,6 +1,5 @@
-import Image from "next/image"
 import { addQueryParams } from "@/utils/url"
-import { BoxIcon, LinkIcon } from "lucide-react"
+import { LinkIcon } from "lucide-react"
 
 import { UTM_PARAMS } from "@/config/site"
 import { Tag } from "@/components/ui/tag"
@@ -26,30 +25,12 @@ export function ProjectItem({
   const { start, end } = project.period
   const isOngoing = !end
   const isSinglePeriod = end === start
-  const Icon = project.icon ?? BoxIcon
 
   return (
     <div className={className}>
       <div className="group/project flex items-center hover:bg-accent-muted">
-        {project.logo ? (
-          <Image
-            src={project.logo}
-            alt={project.title}
-            width={32}
-            height={32}
-            quality={100}
-            className="mx-4 flex size-6 shrink-0 grayscale select-none group-hover/project:grayscale-0"
-            unoptimized
-            aria-hidden
-          />
-        ) : (
-          <div className="mx-4 flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-muted-foreground ring-1 ring-line ring-offset-1 ring-offset-background select-none">
-            <Icon className="size-4" />
-          </div>
-        )}
-
         <CollapsibleDetails
-          className="min-w-0 flex-1 border-l border-dashed border-line"
+          className="min-w-0 flex-1"
           defaultOpen={project.isExpanded}
           summaryClassName="flex w-full items-center"
           summary={
