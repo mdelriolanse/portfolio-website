@@ -5,6 +5,7 @@ import { format } from "date-fns"
 
 import type { Doc } from "@/features/doc/types/document"
 
+import { RmsTapePlot } from "./groundwork-charts"
 import { SafetyIndexChart } from "./open-weight-open-risk-charts"
 
 type HeadingTypes = "h2" | "h3" | "h4"
@@ -19,6 +20,7 @@ const POST_THUMBNAILS: Record<
   React.ComponentType<{ className?: string }>
 > = {
   "open-weight-open-risk": SafetyIndexChart,
+  groundwork: RmsTapePlot,
 }
 
 export function PostItem({

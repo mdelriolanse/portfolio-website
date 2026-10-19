@@ -34,6 +34,19 @@ import {
 import { Code } from "@/components/base/ui/typography"
 import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper"
 import {
+  ContainmentProof,
+  GroundworkPipeline,
+  RmsTapeChart,
+} from "@/features/blog/components/groundwork-charts"
+import {
+  MarkoDriftFigure,
+  MarkoHeroVideo,
+  MarkoPhoneViews,
+  MarkoRouterFigure,
+  MarkoScanFigure,
+  MarkoWalkFigure,
+} from "@/features/blog/components/marko-charts"
+import {
   BioTraceBreakdown,
   ChemTraceBreakdown,
   ComplianceChart,
@@ -102,6 +115,19 @@ const components: MDXRemoteProps["components"] = {
   BioTraceBreakdown,
   ChemTraceBreakdown,
   LateRefusalChart,
+
+  // Charts for the "How we built Groundwork" post
+  GroundworkPipeline,
+  RmsTapeChart,
+  ContainmentProof,
+
+  // Figures for the "How marko finds you inside a building" post
+  MarkoHeroVideo,
+  MarkoWalkFigure,
+  MarkoRouterFigure,
+  MarkoScanFigure,
+  MarkoDriftFigure,
+  MarkoPhoneViews,
 }
 
 const options: MDXRemoteProps["options"] = {

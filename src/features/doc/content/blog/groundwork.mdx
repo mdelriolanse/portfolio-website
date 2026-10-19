@@ -1,0 +1,100 @@
+---
+title: How we built Groundwork, an AI maintenance engineer that never leaves the plant
+description: An always-on agent that catches a failing bearing, reads the manual, and opens a cited work order, running entirely on one Dell Pro Max GB10. Built in under nine hours; 2nd place at the Dell × NVIDIA AI Hackathon at Cornell.
+createdAt: 2026-10-19
+updatedAt: 2026-10-19
+---
+
+Most factories can't send their most important data to a cloud model.
+
+Equipment on IEC 62443 SL2+ networks isn't permitted arbitrary outbound connections, so cloud AI fails the rule before anyone evaluates it. Meanwhile, the knowledge to keep those machines running is scattered across thousand-page manuals, years of work orders, and sensor data nobody reads until something breaks.
+
+So we put an AI maintenance engineer inside the plant. Groundwork watches rotating equipment on its own, catches a developing fault, and opens a work order that cites the signal window, the manual page, and the maintenance history. Nothing leaves the box, and the box can prove it.
+
+We built it in about eight hours and forty-five minutes at the Dell × NVIDIA AI Hackathon at Cornell on 12 September 2026, and took 2nd place.
+
+<RmsTapeChart />
+
+## Why local is the whole point
+
+If the demo would work the same way with an API key, being local adds nothing to the product. We used that as our filter for every idea.
+
+Plant-floor maintenance passed it. In December 2025, CISA, the NSA, the FBI, and six allied agencies published joint guidance on AI in operational technology. It explicitly covers LLM-based agents and recommends pushing OT data to a _separate AI system_. A GB10 on the plant network is that system.
+
+We avoided two easier pitches. Cost doesn't work: self-hosting only beats API pricing at high utilization. Novelty doesn't work either: industrial predictive maintenance is a crowded category. What we couldn't find was a vendor that _proves_ its air gap. Everyone asserts it. That gap became the demo.
+
+## The box
+
+Everything runs on one Dell Pro Max GB10:
+
+- **Model:** Qwen3.6-35B-A3B, a mixture-of-experts with about 3B active parameters, at Q4_K_M on llama.cpp built for `sm_121a`. Around 73 tok/s decode and 2k tok/s prompt eval on a warm slot, served with reasoning off so thinking can't eat the output budget.
+- **Agent harness:** OpenClaw, running inside a NemoClaw sandbox. Inside it, the model calls the DSP's tools over MCP.
+- **Containment:** OpenShell. It sandboxes the agent and logs a deny when anything tries to send data off the box.
+- **DSP:** [predictive-maintenance-mcp](https://github.com/lgdimaggio/predictive-maintenance-mcp) (PMMCP).
+
+We had planned to serve the NVFP4 build on vLLM. That needed an NGC container we couldn't pull on the day, so the GGUF on llama.cpp became the primary model. One gotcha: `llama-server` had to bind `0.0.0.0`, not `127.0.0.1`, because the sandbox reaches the host's inference server from inside its own network namespace.
+
+## Don't rebuild the DSP
+
+The first decision saved the most time. PMMCP already does FFT, envelope analysis, bearing defect frequencies, and ISO tables. It's MIT-licensed, has 1,365 tests, and makes zero network calls.
+
+What it doesn't have is a scheduler, persistence, live ingest, or a work order. That became our product.
+
+We also read its headline accuracy carefully. The 77.3% figure was scored with no healthy recordings in the test set, so it says nothing about false alarms. We bound four healthy CWRU recordings to their own motors so a false-positive rate is something the system can actually measure.
+
+## The loop
+
+The model is not the anomaly detector. Constant monitoring is cheap, deterministic, and runs on the CPU. The model only wakes when something has already gone wrong.
+
+<GroundworkPipeline />
+
+Every second, a Python hop loop slices a 2-second window of vibration, classifies it, and writes a few scalars to a SQLite historian. The raw waveform never enters a database, let alone a prompt.
+
+When the fault class flips, the loop raises a flag. The board server checks for pending flags every second and starts one agent run per flag. No flag, no model call.
+
+## The fault
+
+For the demo we replayed real bearing data from the Case Western Reserve University dataset. The motor runs a healthy recording, then switches to an inner-race fault at 13:58:00.
+
+RMS jumps from 0.074 g to 0.289 g, nearly four times the healthy level and far above the four healthy belt motors (0.065–0.073 g). The fault class flips to inner race, so the loop raises a flag before the model sees anything.
+
+We were careful about what's synthetic. The loop, the wall clock, the CMMS history, and the process tags on the non-motor stations are. Every vibration RMS comes from a real recording. On these short windows the envelope check didn't resolve a clean defect peak, so the fault class falls back to the recording's CWRU label. The CWRU rig is a 2 hp motor, well under the 15 kW floor of ISO 20816, so Groundwork never shows an ISO zone letter for it.
+
+## The model never chooses a citation
+
+The model doesn't diagnose; the DSP already did. Inside the sandbox it loads the signal window, calls PMMCP's diagnosis tool, and turns the result into a repair a technician can act on: the action and the evidence lines.
+
+Everything a technician would navigate by is not the model's to choose. The server overwrites the asset, the evidence window, and the citations with canonical values: the CWRU window, the SKF manual page, and the matching CMMS row (here, an inner-race order already open on the same motor).
+
+Then a plain, non-LLM gate checks that every citation opens. The CWRU window has to exist on disk. The manual page has to be in range. The CMMS row has to be a real row. If any check fails, the work order is rejected and the Board never shows it.
+
+SQLite is the only bus between the agent and the UI. The model never paints the screen.
+
+## Proving the air gap
+
+The last beat of the demo is to make the sandbox try to POST to an outside telemetry endpoint.
+
+<ContainmentProof />
+
+A failed `curl` doesn't prove anything; the network could just be down. So the Board reads OpenShell's own audit log. It parses the gateway's `NET:OPEN DENIED` line and shows the process, destination, policy engine, and reason. Containment reads _contained_ only when the gateway has logged a deny. Until then it reads _unproven_.
+
+## What we chose not to build
+
+- **No dense model of 32B or more.** On this box they run at 2.7–8 tok/s, too slow for a live demo. A mixture-of-experts with 3B active parameters isn't.
+- **No reasoning-heavy model.** Our Plan B thinks so much it can spend the token budget before the work order lands.
+- **No chat-with-PDFs.** Retrieval is driven by the flag, not by a technician typing.
+- **No vision or speech models.** The plant is telemetry and PDFs, and GPU audio stacks crash on the GB10's `sm_121`.
+- **No PMMCP sample data.** It's licensed non-commercial, so it stays out of the repo.
+
+## What we got wrong first
+
+- **The sensor.** The first plan was an ESP32 with an ADXL345 accelerometer at 1 kHz. At that rate the Nyquist limit is 500 Hz, but the envelope band starts at 500 Hz, so the filter rejected it (`filter_high=499 < filter_low=500`). We needed sampling above 1,002 Hz, so the plan moved to a USB audio interface. On the day, the CWRU recordings carried the demo.
+- **The market.** We started out believing industrial OT had almost no software competition. That was wrong. The regulatory argument survived; the whitespace didn't.
+- **The stack.** We read the hackathon brief as a choice between NemoClaw, OpenShell, and OpenClaw. They're layers, and onboarding installs all three.
+- **The weights.** Never serve a model off the USB drive. `--no-mmap` reads the whole file, and the stick wrote at 13 MB/s. Copy to NVMe first.
+
+## What's next
+
+Only the inner-race fault has a manual page we verified by hand. Other fault classes fall back to a keyword search over the manual, and failing that, a random page from its middle: a proof-of-concept shortcut, and the first thing to replace with real retrieval. After that: a live sensor rig in place of replayed recordings, and a baseline-deviation flag so the loop catches drift before the fault class changes.
+
+The [public demo](https://get-groundwork.vercel.app) is a static replay with pre-seeded incidents. Detection and the containment proof only run on the GB10. The code is on [GitHub](https://github.com/mdelriolanse/groundwork).
